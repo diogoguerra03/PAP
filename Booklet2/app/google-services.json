@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "653803512877",
+    "firebase_url": "https://booklet-9412c.firebaseio.com",
+    "project_id": "booklet-9412c",
+    "storage_bucket": "booklet-9412c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653803512877:android:dd96aa3f50a853ddc3c4a4",
+        "android_client_info": {
+          "package_name": "com.example.booklet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653803512877-lg2jaq9jtu77nrjk9vrovduh9rsi52t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.booklet",
+            "certificate_hash": "ba1553b93f039cb106149ca029283ff64a95783a"
+          }
+        },
+        {
+          "client_id": "653803512877-ng5nm5st5q8vkfnnfit425cj2fdo7pdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhPAi-xA6iIUqZioUvdNEUaNlBuZBjf2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653803512877-ng5nm5st5q8vkfnnfit425cj2fdo7pdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

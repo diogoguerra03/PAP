@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.booklet">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo_booklet"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo_booklet"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".activity.PrincipalActivityAluno"
+            android:label="@string/title_activity_principal"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.horario.Segunda"
+            android:parentActivityName=".activity.PrincipalActivityAluno" />
+        <activity
+            android:name=".activity.horario.Sexta"
+            android:parentActivityName=".activity.PrincipalActivityAluno" />
+        <activity
+            android:name=".activity.horario.Quinta"
+            android:parentActivityName=".activity.PrincipalActivityAluno" />
+        <activity
+            android:name=".activity.horario.Quarta"
+            android:parentActivityName=".activity.PrincipalActivityAluno" />
+        <activity
+            android:name=".activity.horario.Terca"
+            android:parentActivityName=".activity.PrincipalActivityAluno" />
+        <activity
+            android:name=".activity.RegistoAlunoActivity"
+            android:parentActivityName=".activity.MainActivity" />
+    </application>
+
+</manifest>
