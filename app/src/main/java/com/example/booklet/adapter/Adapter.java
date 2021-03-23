@@ -60,7 +60,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
-
         final Articles a = articles.get(position);
 
         String imageUrl = a.getUrlToImage();
