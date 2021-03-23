@@ -48,6 +48,7 @@ public class PerfilFragment extends Fragment {
     public PerfilFragment() {
         // Required empty public constructor
 
+
     }
 
     @Override
