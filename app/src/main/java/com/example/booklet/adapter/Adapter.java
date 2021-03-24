@@ -82,18 +82,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 webView.showContextMenu();
                 popupnoticia.show();
 
+            }
+        });
 
-                /*
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(context.CLIPBOARD_SERVICE);
                 ClipData clipData = ClipData.newPlainText("EditText", a.getUrl().toString());
 
                 clipboardManager.setPrimaryClip(clipData);
 
                 Toast.makeText(context, "O link foi copiado para a sua área de transferência", Toast.LENGTH_SHORT).show();
-                 */
-
+                return true;
             }
         });
+
 
     }
 
