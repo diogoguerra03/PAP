@@ -9,13 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Atualizar tarefa"
-        android:gravity="center"
         android:background="@color/colorPrimary"
-        android:textColor="#fff"
+        android:gravity="center"
         android:padding="10dp"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+        android:text="Atualizar Tarefa"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -142,6 +142,7 @@
                 android:layout_marginBottom="10dp"
                 android:hint="Data"
                 android:inputType="date"
+                android:keyboardNavigationCluster="false"
                 android:maxLength="10"
                 android:textColor="#000"
                 android:textColorHint="#000" />
