@@ -137,6 +137,7 @@ public class PerfilFragment extends Fragment {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_mudar_password, null);
         final EditText passwordEt = view.findViewById(R.id.passwordET);
         final EditText newPasswordEt = view.findViewById(R.id.NewPasswordET);
+        final EditText confirmNewPasswordEt = view.findViewById(R.id.ConfirmNewPasswordET);
         Button updatePasswordBtn = view.findViewById(R.id.BtnAtualizarPass);
         final Button btnCancelarPass = view.findViewById(R.id.btnCancelarPass);
 
@@ -160,14 +161,22 @@ public class PerfilFragment extends Fragment {
             public void onClick(View v) {
                 String oldPass = passwordEt.getText().toString().trim();
                 String newPass = newPasswordEt.getText().toString().trim();
+                String confirmNewPass = confirmNewPasswordEt.getText().toString().trim();
                 if (TextUtils.isEmpty(oldPass)){
                     Toast.makeText(getActivity(), "Preenche a tua password atual...", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (newPass.length()<6){
-                    Toast.makeText(getActivity(), "A nova password é muito curta...", Toast.LENGTH_SHORT).show();
+
+                if (confirmNewPass.equals(newPass)){
+                    if (newPass.length()<6){
+                        Toast.makeText(getActivity(), "A nova password é muito curta...", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else{
+                    Toast.makeText(getActivity(), "As novas passwords não coincidem...", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
 
                 dialog.dismiss();
                 atualizarPass(oldPass, newPass);
@@ -191,6 +200,7 @@ public class PerfilFragment extends Fragment {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(getActivity(), "Password atualizada com sucesso", Toast.LENGTH_SHORT).show();
+                                        MostrarFimSessao();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -208,6 +218,27 @@ public class PerfilFragment extends Fragment {
                     }
                 });
     }
+
+    private void MostrarFimSessao(){
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_altert_terminar_sessao, null);
+        Button btnTerminar = view.findViewById(R.id.btnFecharSessao);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(view);
+
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        btnTerminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deslogarUtilizador();
+                startActivity(new Intent(getActivity(), MainActivity.class));
+            }
+        });
+    }
+
 
     private void deslogarUtilizador(){
         try{
