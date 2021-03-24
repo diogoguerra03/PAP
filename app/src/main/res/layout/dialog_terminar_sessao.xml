@@ -58,7 +58,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/red"
+                android:background="@android:color/holo_red_light"
                 android:text="Terminar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
