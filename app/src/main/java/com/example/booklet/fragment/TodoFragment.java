@@ -1,7 +1,10 @@
 package com.example.booklet.fragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.booklet.R;
@@ -33,6 +38,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -58,6 +64,9 @@ public class TodoFragment extends Fragment {
     private String tarefaPreenchida;
     private String descricaoPreenchida;
     private String dataPreenchida;
+
+    private EditText mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -191,12 +200,39 @@ public class TodoFragment extends Fragment {
 
         final EditText campotarefa = myView.findViewById(R.id.tarefa);
         final EditText campodescricao = myView.findViewById(R.id.descricao);
-        final EditText campodata = myView.findViewById(R.id.editData);
+        mDisplayDate = myView.findViewById(R.id.editData);
         Button botaoguardar = myView.findViewById(R.id.btnGuardar);
         Button botaocancelar = myView.findViewById(R.id.btnCancelarTarefa);
 
-        campodata.setText(DateCustom.dataAtual());
+        mDisplayDate.setText(DateCustom.dataAtual());
         dialog.show();
+
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getActivity(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+                mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month + 1;
+                        String date = dayOfMonth + "/" + month + "/" + year;
+                        mDisplayDate.setText(date);
+                    }
+                };
+            }
+        });
 
         botaocancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,14 +247,14 @@ public class TodoFragment extends Fragment {
 
                 String textoTarefa = campotarefa.getText().toString();
                 String textoDescricao = campodescricao.getText().toString();
-                String textoData = campodata.getText().toString();
+                String textoData = mDisplayDate.getText().toString();
 
                 if (!textoTarefa.isEmpty()){
                     if (!textoDescricao.isEmpty()){
                         if (!textoData.isEmpty()){
 
                             tarefa = new Tarefa();
-                            String data = campodata.getText().toString();
+                            String data = mDisplayDate.getText().toString();
 
                             tarefa.setTarefa(campotarefa.getText().toString());
                             tarefa.setDescricao(campodescricao.getText().toString());
