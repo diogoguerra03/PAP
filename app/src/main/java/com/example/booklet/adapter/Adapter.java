@@ -93,7 +93,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
                 clipboardManager.setPrimaryClip(clipData);
 
-                Toast.makeText(context, "O link foi copiado para a sua área de transferência", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "O link foi copiado!", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
