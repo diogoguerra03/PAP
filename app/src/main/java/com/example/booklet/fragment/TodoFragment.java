@@ -251,7 +251,7 @@ public class TodoFragment extends Fragment {
 
                 if (!textoTarefa.isEmpty()){
                     if (!textoDescricao.isEmpty()){
-                        if (!textoData.isEmpty()){
+                        if (textoData.length() > 7){
 
                             tarefa = new Tarefa();
                             String data = mDisplayDate.getText().toString();
@@ -266,7 +266,7 @@ public class TodoFragment extends Fragment {
 
                         }else{
                             Toast.makeText(getActivity(),
-                                    "Data não foi preenchida!",
+                                    "Preencha a data corretamente!",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }else{
@@ -349,7 +349,7 @@ public class TodoFragment extends Fragment {
 
                 if (!tarefaP.isEmpty()){
                     if (!descricaoP.isEmpty()){
-                        if (!dataP.isEmpty()){
+                        if (dataP.length() > 7){
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
                             HashMap hashTarefa = new HashMap();
@@ -369,7 +369,7 @@ public class TodoFragment extends Fragment {
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
                             dialog.dismiss();
                         }else{
-                            Toast.makeText(getActivity(), "Digite a data", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Preencha a data corretamente", Toast.LENGTH_LONG).show();
                         }
                     }else{
                         Toast.makeText(getActivity(), "Digite a descrição", Toast.LENGTH_LONG).show();
