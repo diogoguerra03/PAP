@@ -2,6 +2,7 @@ package com.example.booklet.fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -38,10 +39,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class TodoFragment extends Fragment {
 
@@ -66,8 +69,11 @@ public class TodoFragment extends Fragment {
     private String descricaoPreenchida;
     private String dataPreenchida;
 
+    //PopUp calendario
     private ImageButton btnCalendario;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
+    final Calendar myCalendar = Calendar.getInstance();
+    private EditText campodata;
+    private AlertDialog popAdd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,7 +124,6 @@ public class TodoFragment extends Fragment {
                 adicionarTarefa();
             }
         });
-
         return view;
     }
 
@@ -196,50 +201,30 @@ public class TodoFragment extends Fragment {
         final View myView = inflater.inflate(R.layout.input_file, null);
         myDialog.setView(myView);
 
-        final AlertDialog dialog = myDialog.create();
-        dialog.setCancelable(false);
+        popAdd = myDialog.create();
+        popAdd.setCancelable(false);
 
         final EditText campotarefa = myView.findViewById(R.id.tarefa);
         final EditText campodescricao = myView.findViewById(R.id.descricao);
-        final EditText campodata = myView.findViewById(R.id.editData);
+        campodata = myView.findViewById(R.id.editData);
         Button botaoguardar = myView.findViewById(R.id.btnGuardar);
         Button botaocancelar = myView.findViewById(R.id.btnCancelarTarefa);
         btnCalendario = myView.findViewById(R.id.btnCalendario);
 
         campodata.setText(DateCustom.dataAtual());
-        dialog.show();
+        popAdd.show();
 
        botaocancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                popAdd.dismiss();
             }
         });
 
         btnCalendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(
-                        getActivity(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateSetListener,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-
-                mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int day) {
-                        month = month + 1;
-                        String date = day + "/" + month + "/" + year;
-                        campodata.setText(date);
-                    }
-                };
+                DateDialog();
             }
         });
 
@@ -264,7 +249,7 @@ public class TodoFragment extends Fragment {
 
                             tarefa.salvar(data);
 
-                            dialog.dismiss();
+                            popAdd.dismiss();
 
                         }else{
                             Toast.makeText(getActivity(),
@@ -284,6 +269,32 @@ public class TodoFragment extends Fragment {
 
             }
         });
+    }
+
+    public void DateDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
+    }
+
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+            myCalendar.getTime();
+        }
+
+    };
+
+    private void updateLabel(){
+        campodata = popAdd.findViewById(R.id.editData);
+        String myFormat = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.FRANCE);
+        campodata.setText(sdf.format(myCalendar.getTime()));
     }
 
     public void recuperarTarefas(){
