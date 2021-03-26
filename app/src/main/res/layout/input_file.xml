@@ -110,7 +110,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_weight="3">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4">
+            android:layout_weight="5">
 
             <EditText
                 android:id="@+id/editData"
@@ -140,6 +140,21 @@
                 android:maxLength="10"
                 android:textColor="#000"
                 android:textColorHint="#000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnCalendario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:src="@drawable/ic_calendar_24" />
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -186,6 +201,7 @@
                 android:textStyle="bold"/>
 
         </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

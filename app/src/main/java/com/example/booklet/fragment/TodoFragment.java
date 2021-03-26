@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,7 +66,7 @@ public class TodoFragment extends Fragment {
     private String descricaoPreenchida;
     private String dataPreenchida;
 
-    private EditText mDisplayDate;
+    private ImageButton btnCalendario;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     @Override
@@ -200,14 +201,22 @@ public class TodoFragment extends Fragment {
 
         final EditText campotarefa = myView.findViewById(R.id.tarefa);
         final EditText campodescricao = myView.findViewById(R.id.descricao);
-        mDisplayDate = myView.findViewById(R.id.editData);
+        final EditText campodata = myView.findViewById(R.id.editData);
         Button botaoguardar = myView.findViewById(R.id.btnGuardar);
         Button botaocancelar = myView.findViewById(R.id.btnCancelarTarefa);
+        btnCalendario = myView.findViewById(R.id.btnCalendario);
 
-        mDisplayDate.setText(DateCustom.dataAtual());
+        campodata.setText(DateCustom.dataAtual());
         dialog.show();
 
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+       botaocancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnCalendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
@@ -225,19 +234,12 @@ public class TodoFragment extends Fragment {
 
                 mDateSetListener = new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        mDisplayDate.setText(date);
+                        String date = day + "/" + month + "/" + year;
+                        campodata.setText(date);
                     }
                 };
-            }
-        });
-
-        botaocancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
             }
         });
 
@@ -247,14 +249,14 @@ public class TodoFragment extends Fragment {
 
                 String textoTarefa = campotarefa.getText().toString();
                 String textoDescricao = campodescricao.getText().toString();
-                String textoData = mDisplayDate.getText().toString();
+                String textoData = campodata.getText().toString();
 
                 if (!textoTarefa.isEmpty()){
                     if (!textoDescricao.isEmpty()){
                         if (textoData.length() > 7){
 
                             tarefa = new Tarefa();
-                            String data = mDisplayDate.getText().toString();
+                            String data = campodata.getText().toString();
 
                             tarefa.setTarefa(campotarefa.getText().toString());
                             tarefa.setDescricao(campodescricao.getText().toString());
