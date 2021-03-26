@@ -115,20 +115,20 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_weight="3">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Data"
-                android:textStyle="bold"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4">
+            android:layout_weight="5">
 
             <EditText
                 android:id="@+id/EditDataAtualizada"
@@ -140,12 +140,26 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Data"
+                android:gravity="center_vertical"
                 android:inputType="date"
-                android:keyboardNavigationCluster="false"
                 android:maxLength="10"
                 android:textColor="#000"
                 android:textColorHint="#000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnCalendarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:src="@drawable/ic_calendar_24" />
+
         </RelativeLayout>
     </LinearLayout>
 

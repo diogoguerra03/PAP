@@ -71,9 +71,12 @@ public class TodoFragment extends Fragment {
 
     //PopUp calendario
     private ImageButton btnCalendario;
+    private ImageButton BtnCalendarioUpDate;
     final Calendar myCalendar = Calendar.getInstance();
     private EditText campodata;
+    private EditText campoDataAtualizada;
     private AlertDialog popAdd;
+    private AlertDialog popUpdate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -331,11 +334,12 @@ public class TodoFragment extends Fragment {
         View view = inflater.inflate(R.layout.update_tarefa, null);
         myDialog.setView(view);
 
-        final AlertDialog dialog = myDialog.create();
+        popUpdate = myDialog.create();
 
         final EditText campoTarefaAtualizada = view.findViewById(R.id.EditTarefaAtualizada);
         final EditText campoDescricaoAtualizada = view.findViewById(R.id.EditDescricaoAtualizada);
-        final EditText campoDataAtualizada = view.findViewById(R.id.EditDataAtualizada);
+        campoDataAtualizada = view.findViewById(R.id.EditDataAtualizada);
+        BtnCalendarioUpDate = view.findViewById(R.id.btnCalendarioUpdate);
 
         campoTarefaAtualizada.setText(tarefaPreenchida);
         campoTarefaAtualizada.setSelection(tarefaPreenchida.length());
@@ -348,6 +352,13 @@ public class TodoFragment extends Fragment {
 
         Button btnCancelar = view.findViewById(R.id.btnCancelarUpdate);
         Button btnAtualizar = view.findViewById(R.id.btnAtualizar);
+
+        BtnCalendarioUpDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateDialogUpdate();
+            }
+        });
 
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -380,7 +391,7 @@ public class TodoFragment extends Fragment {
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashTarefa);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashDescricao);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
-                            dialog.dismiss();
+                            popUpdate.dismiss();
                         }else{
                             Toast.makeText(getActivity(), "Preencha a data corretamente", Toast.LENGTH_LONG).show();
                         }
@@ -400,11 +411,37 @@ public class TodoFragment extends Fragment {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                popUpdate.dismiss();
             }
         });
 
-        dialog.show();
+        popUpdate.show();
+    }
+
+    public void DateDialogUpdate() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),dateUpdate, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
+    }
+
+    DatePickerDialog.OnDateSetListener dateUpdate = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabelUpdate();
+            myCalendar.getTime();
+        }
+
+    };
+
+    private void updateLabelUpdate(){
+        campoDataAtualizada = popUpdate.findViewById(R.id.EditDataAtualizada);
+        String myFormat = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.FRANCE);
+        campoDataAtualizada.setText(sdf.format(myCalendar.getTime()));
     }
 
     @Override
