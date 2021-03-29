@@ -1,6 +1,7 @@
 package com.example.booklet.activity.horario;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -70,6 +72,7 @@ public class Quarta extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterHorario);
+        swipe();
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(Quarta.this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
 
@@ -103,6 +106,73 @@ public class Quarta extends AppCompatActivity {
                 adicionarHorario();
             }
         });
+    }
+
+    public void swipe(){
+
+        ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+
+                int dragFlags = ItemTouchHelper.ACTION_STATE_IDLE;
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return makeMovementFlags(dragFlags, swipeFlags);
+            }
+
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                excluirTarefa(viewHolder);
+
+            }
+        };
+
+        new ItemTouchHelper(itemTouch).attachToRecyclerView(recyclerView);
+
+    }
+
+    public void excluirTarefa(final RecyclerView.ViewHolder viewHolder){
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Quarta.this);
+
+        alertDialog.setTitle("Excluir aula");
+        alertDialog.setMessage("Tem a certeza que deseja excluir a aula?");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                int position = viewHolder.getAdapterPosition();
+                horario = horarios.get(position);
+
+                String emailUtilizador = auth.getCurrentUser().getEmail();
+                String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
+
+                horarioQuartaRef = firebaseRef.child("horario")
+                        .child(idUtilizador).child("quarta");
+
+                horarioQuartaRef.child(horario.getId()).removeValue();
+                adapterHorario.notifyItemRemoved(position);
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(Quarta.this,
+                        "Cancelado",
+                        Toast.LENGTH_SHORT).show();
+                adapterHorario.notifyDataSetChanged();
+            }
+        });
+
+        AlertDialog alert = alertDialog.create();
+        alert.show();
     }
 
     private void adicionarHorario(){
