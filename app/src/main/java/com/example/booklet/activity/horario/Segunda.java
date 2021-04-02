@@ -58,7 +58,7 @@ public class Segunda extends AppCompatActivity {
         setContentView(R.layout.activity_segunda);
 
         getSupportActionBar().setTitle("Segunda");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
         recyclerView = findViewById(R.id.recyclerViewSegunda);
@@ -387,4 +387,10 @@ public class Segunda extends AppCompatActivity {
         horarioSegundaRef.removeEventListener(valueEventListenerHorario);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        finish();
+        return false;
+    }
 }

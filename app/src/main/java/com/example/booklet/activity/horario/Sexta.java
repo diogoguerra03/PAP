@@ -58,7 +58,7 @@ public class Sexta extends AppCompatActivity {
         setContentView(R.layout.activity_sexta);
 
         getSupportActionBar().setTitle("Sexta");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
         recyclerView = findViewById(R.id.recyclerViewSexta);
@@ -383,6 +383,13 @@ public class Sexta extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         horarioSextaRef.removeEventListener(valueEventListenerHorario);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        finish();
+        return false;
     }
 
 }

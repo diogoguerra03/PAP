@@ -58,7 +58,7 @@ public class Quinta extends AppCompatActivity {
         setContentView(R.layout.activity_quinta);
 
         getSupportActionBar().setTitle("Quinta");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
         recyclerView = findViewById(R.id.recyclerViewQuinta);
@@ -385,4 +385,10 @@ public class Quinta extends AppCompatActivity {
         horarioQuintaRef.removeEventListener(valueEventListenerHorario);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        finish();
+        return false;
+    }
 }

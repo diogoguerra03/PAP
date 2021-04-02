@@ -58,7 +58,7 @@ public class Terca extends AppCompatActivity {
         setContentView(R.layout.activity_terca);
 
         getSupportActionBar().setTitle("Terça");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
         recyclerView = findViewById(R.id.recyclerViewTerca);
@@ -383,6 +383,13 @@ public class Terca extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         horarioTercaRef.removeEventListener(valueEventListenerHorario);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        finish();
+        return false;
     }
 
 }
