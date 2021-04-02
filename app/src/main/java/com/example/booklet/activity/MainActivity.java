@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (FirebaseAuthInvalidCredentialsException e) {
                         excecao = "E-mail e senha não correspondem a um utilizador regisado";
                     } catch (Exception e) {
-                        excecao = "Erro ao registar utilizador: " + e.getMessage();
+                        excecao = "Erro ao tentar entrar: " + e.getMessage();
                         e.printStackTrace();
                     }
 
