@@ -4,8 +4,11 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -32,6 +35,7 @@ import com.example.booklet.helper.Base64Custom;
 import com.example.booklet.helper.DateCustom;
 import com.example.booklet.helper.RecyclerItemClickListener;
 import com.example.booklet.model.Tarefa;
+import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -77,6 +81,8 @@ public class TodoFragment extends Fragment {
     private EditText campoDataAtualizada;
     private AlertDialog popAdd;
     private AlertDialog popUpdate;
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -446,12 +452,15 @@ public class TodoFragment extends Fragment {
 
     @Override
     public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        requireActivity().registerReceiver(networkChangeListener, filter);
         super.onStart();
         recuperarTarefas();
     }
 
     @Override
     public void onStop() {
+        requireActivity().unregisterReceiver(networkChangeListener);
         super.onStop();
         tarefaRef.removeEventListener(valueEventListenerTarefas);
     }

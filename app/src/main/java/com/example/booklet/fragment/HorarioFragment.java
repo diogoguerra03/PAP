@@ -1,6 +1,8 @@
 package com.example.booklet.fragment;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,12 +18,15 @@ import com.example.booklet.activity.horario.Quinta;
 import com.example.booklet.activity.horario.Segunda;
 import com.example.booklet.activity.horario.Sexta;
 import com.example.booklet.activity.horario.Terca;
+import com.example.booklet.utility.NetworkChangeListener;
 
 public class HorarioFragment extends Fragment {
 
     public HorarioFragment() {
         // Required empty public constructor
     }
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,5 +82,18 @@ public class HorarioFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        requireActivity().registerReceiver(networkChangeListener, filter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        requireActivity().unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

@@ -2,6 +2,8 @@ package com.example.booklet.activity.horario;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.example.booklet.config.ConfiguracaoFirebase;
 import com.example.booklet.helper.Base64Custom;
 import com.example.booklet.helper.RecyclerItemClickListener;
 import com.example.booklet.model.Horario;
+import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -51,6 +54,8 @@ public class Sexta extends AppCompatActivity {
     private String salaPreenchida;
     private String HrInicialPreenchida;
     private String HrFinalPreenchida;
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -375,12 +380,15 @@ public class Sexta extends AppCompatActivity {
 
     @Override
     public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
         super.onStart();
         recuperarHoraio();
     }
 
     @Override
     public void onStop() {
+        unregisterReceiver(networkChangeListener);
         super.onStop();
         horarioSextaRef.removeEventListener(valueEventListenerHorario);
     }

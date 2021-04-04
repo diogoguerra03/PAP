@@ -1,6 +1,8 @@
 package com.example.booklet.activity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.booklet.R;
 import com.example.booklet.config.ConfiguracaoFirebase;
 import com.example.booklet.model.Utilizador;
+import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference utilizadorRef;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,8 +119,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
         super.onStart();
         verificarUtilizadorLogado();
+    }
+
+    @Override
+    public void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
     public void verificarUtilizadorLogado(){

@@ -2,6 +2,8 @@ package com.example.booklet.activity.horario;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.example.booklet.config.ConfiguracaoFirebase;
 import com.example.booklet.helper.Base64Custom;
 import com.example.booklet.helper.RecyclerItemClickListener;
 import com.example.booklet.model.Horario;
+import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -51,6 +54,8 @@ public class Quarta extends AppCompatActivity {
     private String salaPreenchida;
     private String HrInicialPreenchida;
     private String HrFinalPreenchida;
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +113,7 @@ public class Quarta extends AppCompatActivity {
         });
     }
 
-    public void swipe(){
+    public void swipe() {
 
         ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
             @Override
@@ -136,7 +141,7 @@ public class Quarta extends AppCompatActivity {
 
     }
 
-    public void excluirTarefa(final RecyclerView.ViewHolder viewHolder){
+    public void excluirTarefa(final RecyclerView.ViewHolder viewHolder) {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Quarta.this);
 
@@ -175,7 +180,7 @@ public class Quarta extends AppCompatActivity {
         alert.show();
     }
 
-    private void adicionarHorario(){
+    private void adicionarHorario() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(Quarta.this);
         LayoutInflater inflater = LayoutInflater.from(Quarta.this);
 
@@ -207,14 +212,14 @@ public class Quarta extends AppCompatActivity {
 
                 String textoDisciplina = campodisciplina.getText().toString();
                 String textoSala = camposala.getText().toString();
-                String textoHrInicial= campoHrInicial.getText().toString();
+                String textoHrInicial = campoHrInicial.getText().toString();
                 String textoHrFinal = campoHrFinal.getText().toString();
 
 
-                if (!textoDisciplina.isEmpty()){
-                    if (!textoSala.isEmpty()){
-                        if (!textoHrInicial.isEmpty()){
-                            if (!textoHrFinal.isEmpty()){
+                if (!textoDisciplina.isEmpty()) {
+                    if (!textoSala.isEmpty()) {
+                        if (!textoHrInicial.isEmpty()) {
+                            if (!textoHrFinal.isEmpty()) {
 
                                 horario = new Horario();
 
@@ -226,22 +231,22 @@ public class Quarta extends AppCompatActivity {
                                 horario.salvarQuarta();
 
                                 dialog.dismiss();
-                            }else{
+                            } else {
                                 Toast.makeText(Quarta.this,
                                         "Hora não foi preenchida!",
                                         Toast.LENGTH_SHORT).show();
                             }
-                        }else{
+                        } else {
                             Toast.makeText(Quarta.this,
                                     "Hora não foi preenchida!",
                                     Toast.LENGTH_SHORT).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(Quarta.this,
                                 "Descrição não foi preenchida!",
                                 Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(Quarta.this,
                             "Tarefa não foi preenchida!",
                             Toast.LENGTH_SHORT).show();
@@ -252,7 +257,7 @@ public class Quarta extends AppCompatActivity {
 
     }
 
-    public void recuperarHoraio(){
+    public void recuperarHoraio() {
         String emailUtilizador = auth.getCurrentUser().getEmail();
         String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -263,7 +268,7 @@ public class Quarta extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 horarios.clear();
-                for(DataSnapshot dados: snapshot.getChildren()){
+                for (DataSnapshot dados : snapshot.getChildren()) {
                     Horario horario = dados.getValue(Horario.class);
                     horario.setId(dados.getKey());
                     horarios.add(horario);
@@ -280,7 +285,7 @@ public class Quarta extends AppCompatActivity {
         });
     }
 
-    private void atualizarTarefa(){
+    private void atualizarTarefa() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(Quarta.this);
         LayoutInflater inflater = LayoutInflater.from(Quarta.this);
         View view = inflater.inflate(R.layout.update_horario, null);
@@ -321,9 +326,9 @@ public class Quarta extends AppCompatActivity {
                 String HrInicialP = HrInicialPreenchida;
                 String HrFinalP = HrFinalPreenchida;
 
-                if (!disciplinaP.isEmpty()){
-                    if (!salaP.isEmpty()){
-                        if (!HrInicialP.isEmpty() && !HrFinalP.isEmpty()){
+                if (!disciplinaP.isEmpty()) {
+                    if (!salaP.isEmpty()) {
+                        if (!HrInicialP.isEmpty() && !HrFinalP.isEmpty()) {
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -347,17 +352,16 @@ public class Quarta extends AppCompatActivity {
                             horarioQuartaRef.child(horario.getId()).updateChildren(hashHrInicial);
                             horarioQuartaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
-                        }else{
+                        } else {
                             Toast.makeText(Quarta.this, "Digite a hora corretamente", Toast.LENGTH_LONG).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(Quarta.this, "Digite a descrição", Toast.LENGTH_LONG).show();
                     }
 
-                }else{
+                } else {
                     Toast.makeText(Quarta.this, "Digite a tarefa", Toast.LENGTH_LONG).show();
                 }
-
 
 
             }
@@ -375,12 +379,15 @@ public class Quarta extends AppCompatActivity {
 
     @Override
     public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
         super.onStart();
         recuperarHoraio();
     }
 
     @Override
     public void onStop() {
+        unregisterReceiver(networkChangeListener);
         super.onStop();
         horarioQuartaRef.removeEventListener(valueEventListenerHorario);
     }

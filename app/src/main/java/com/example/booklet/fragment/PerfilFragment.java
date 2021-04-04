@@ -2,6 +2,8 @@ package com.example.booklet.fragment;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.example.booklet.activity.MainActivity;
 import com.example.booklet.config.ConfiguracaoFirebase;
 import com.example.booklet.helper.Base64Custom;
 import com.example.booklet.model.Utilizador;
+import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -44,7 +47,9 @@ public class PerfilFragment extends Fragment {
     private DatabaseReference utilizadorRef;
     private ValueEventListener valueEventListenerUtilizador;
     private Utilizador utilizador;
-    
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -246,6 +251,19 @@ public class PerfilFragment extends Fragment {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        requireActivity().registerReceiver(networkChangeListener, filter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        requireActivity().unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
 }

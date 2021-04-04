@@ -2,6 +2,8 @@ package com.example.booklet.fragment;
 
 import android.app.Dialog;
 import android.content.ClipboardManager;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,6 +26,7 @@ import com.example.booklet.api.ApiClient;
 import com.example.booklet.api.ApiInterface;
 import com.example.booklet.model.noticias.Articles;
 import com.example.booklet.model.noticias.Headlines;
+import com.example.booklet.utility.NetworkChangeListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +47,7 @@ public class FeedFragment extends Fragment {
     Adapter adapter;
     List<Articles> articles = new ArrayList<>();
 
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
 
     public FeedFragment() {
@@ -70,30 +74,30 @@ public class FeedFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                retrieveJson("",country,API_KEY);
+                retrieveJson("", country, API_KEY);
             }
         });
-        retrieveJson("",country,API_KEY);
+        retrieveJson("", country, API_KEY);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!etQuery.getText().toString().equals("")){
+                if (!etQuery.getText().toString().equals("")) {
                     swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
-                            retrieveJson(etQuery.getText().toString(),country,API_KEY);
+                            retrieveJson(etQuery.getText().toString(), country, API_KEY);
                         }
                     });
-                    retrieveJson(etQuery.getText().toString(),country,API_KEY);
-                }else{
+                    retrieveJson(etQuery.getText().toString(), country, API_KEY);
+                } else {
                     swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
-                            retrieveJson("",country,API_KEY);
+                            retrieveJson("", country, API_KEY);
                         }
                     });
-                    retrieveJson("",country,API_KEY);
+                    retrieveJson("", country, API_KEY);
                 }
             }
         });
@@ -102,25 +106,24 @@ public class FeedFragment extends Fragment {
 
     }
 
-    public void retrieveJson(String query ,String country, String apiKey){
-
+    public void retrieveJson(String query, String country, String apiKey) {
 
         swipeRefreshLayout.setRefreshing(true);
         Call<Headlines> call;
-        if (!etQuery.getText().toString().equals("")){
-            call= ApiClient.getInstance().getApi().getSpecificData(query,apiKey);
-        }else{
-            call= ApiClient.getInstance().getApi().getHeadlines(country,apiKey);
+        if (!etQuery.getText().toString().equals("")) {
+            call = ApiClient.getInstance().getApi().getSpecificData(query, apiKey);
+        } else {
+            call = ApiClient.getInstance().getApi().getHeadlines(country, apiKey);
         }
 
         call.enqueue(new Callback<Headlines>() {
             @Override
             public void onResponse(Call<Headlines> call, Response<Headlines> response) {
-                if (response.isSuccessful() && response.body().getArticles() != null){
+                if (response.isSuccessful() && response.body().getArticles() != null) {
                     swipeRefreshLayout.setRefreshing(false);
                     articles.clear();
                     articles = response.body().getArticles();
-                    adapter = new Adapter(getActivity(),articles);
+                    adapter = new Adapter(getActivity(), articles);
                     recyclerView.setAdapter(adapter);
                 }
             }
@@ -128,14 +131,28 @@ public class FeedFragment extends Fragment {
             @Override
             public void onFailure(Call<Headlines> call, Throwable t) {
                 swipeRefreshLayout.setRefreshing(false);
-                Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public String getCountry(){
+    public String getCountry() {
         Locale locale = Locale.getDefault();
         String country = locale.getCountry();
         return country.toLowerCase();
     }
+
+    @Override
+    public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        requireActivity().registerReceiver(networkChangeListener, filter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        requireActivity().unregisterReceiver(networkChangeListener);
+        super.onStop();
+    }
+
 }
