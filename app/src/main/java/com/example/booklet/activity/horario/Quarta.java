@@ -62,7 +62,7 @@ public class Quarta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarta);
 
-        getSupportActionBar().setTitle("Quarta");
+        getSupportActionBar().setTitle(R.string.quarta);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 

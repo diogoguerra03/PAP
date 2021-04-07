@@ -62,7 +62,7 @@ public class Segunda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
 
-        getSupportActionBar().setTitle("Segunda");
+        getSupportActionBar().setTitle(R.string.segunda);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 

@@ -43,7 +43,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/g_bold"
                 android:padding="14dp"
-                android:text="Segunda"
+                android:text="@string/segunda"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="26sp"/>
@@ -73,7 +73,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/g_bold"
                 android:padding="14dp"
-                android:text="Terça"
+                android:text="@string/terca"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="26sp"/>
@@ -130,7 +130,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/g_bold"
                 android:padding="14dp"
-                android:text="Quarta"
+                android:text="@string/quarta"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="26sp"/>
@@ -159,7 +159,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/g_bold"
                 android:padding="14dp"
-                android:text="Quinta"
+                android:text="@string/quinta"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="26sp"/>
@@ -215,7 +215,7 @@
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/g_bold"
                 android:padding="14dp"
-                android:text="Sexta"
+                android:text="@string/sexta"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="26sp"/>

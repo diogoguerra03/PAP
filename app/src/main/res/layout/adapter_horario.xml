@@ -27,7 +27,7 @@
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Disciplina"
+                android:text="@string/disciplina"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
                         android:layout_marginBottom="10dp"
                         android:maxLines="1"
                         android:padding="5dp"
-                        android:text="Sala:"
+                        android:text="@string/salaIN"
                         android:textColor="#000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -70,7 +70,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3">
+                    android:layout_weight="5">
                     <TextView
                         android:id="@+id/salaTv"
                         android:layout_width="match_parent"
@@ -83,12 +83,6 @@
                         android:textColor="#000"/>
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6">
-
-                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -111,7 +105,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Horas:"
+                        android:text="@string/horas"
                         android:textColor="#000"
                         android:textSize="18sp"
                         android:textStyle="bold"/>

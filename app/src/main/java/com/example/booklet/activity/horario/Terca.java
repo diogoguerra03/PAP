@@ -62,7 +62,7 @@ public class Terca extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terca);
 
-        getSupportActionBar().setTitle("Terça");
+        getSupportActionBar().setTitle(R.string.terca);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 

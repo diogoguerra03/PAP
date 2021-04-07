@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="procurar">Search</string>
+    <string name="noticias">News</string>
+    <string name="tarefas">Tasks</string>
+    <string name="tarefa">Task</string>
+    <string name="disciplina">Subject</string>
+    <string name="data">Date:</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="novaTarefa">New Task</string>
+    <string name="atualizarTarefa">Update Task</string>
+    <string name="atualizar">Update</string>
+    <string name="horario">Timetable</string>
+    <string name="segunda">Monday</string>
+    <string name="terca">Tuesday</string>
+    <string name="quarta">Wednesday</string>
+    <string name="quinta">Thursday</string>
+    <string name="sexta">Friday</string>
+    <string name="sala">Classroom</string>
+    <string name="horas">Time:</string>
+    <string name="adicionarNovaDisciplina">Add new subject</string>
+    <string name="salaIN">Classroom:</string>
+    <string name="disciplinaIN">Subject:</string>
+    <string name="tarefaIN">Task:</string>
+    <string name="atualizarHorario">Update schedule</string>
+</resources>

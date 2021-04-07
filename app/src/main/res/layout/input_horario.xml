@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Adicionar nova disciplina"
+        android:text="@string/adicionarNovaDisciplina"
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Disciplina"
+                android:text="@string/disciplinaIN"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -50,7 +50,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Disciplina"
+                android:hint="@string/disciplina"
                 android:maxLength="20"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sala"
+                android:text="@string/salaIN"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -90,7 +90,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Sala"
+                android:hint="@string/sala"
                 android:maxLength="20"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -117,7 +117,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="Horas:"
+                android:text="@string/horas"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -177,7 +177,7 @@
 
             <Button
                 android:id="@+id/btnCancelarHorario"
-                android:text="Cancelar"
+                android:text="@string/cancelar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:background="@color/colorPrimary"
@@ -196,7 +196,7 @@
 
             <Button
                 android:id="@+id/btnGuardarDisciplina"
-                android:text="Guardar"
+                android:text="@string/guardar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:background="@color/colorPrimary"

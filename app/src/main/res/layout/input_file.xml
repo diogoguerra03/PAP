@@ -12,7 +12,7 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Nova Tarefa"
+        android:text="@string/novaTarefa"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Disciplina"
+                android:text="@string/disciplinaIN"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
@@ -51,7 +51,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Disciplina..."
+                android:hint="@string/disciplina"
                 android:maxLength="20"
                 android:textColor="#000"
                 android:textColorHint="#000" />
@@ -72,7 +72,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descrição"
+                android:text="@string/tarefaIN"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
@@ -93,7 +93,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Descrição..."
+                android:hint="@string/tarefa"
                 android:maxLength="50"
                 android:textColor="#000"
                 android:textColorHint="#000" />
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Data"
+                android:text="@string/data"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
@@ -171,7 +171,7 @@
 
             <Button
                 android:id="@+id/btnCancelarTarefa"
-                android:text="Cancelar"
+                android:text="@string/cancelar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:background="@color/colorPrimary"
@@ -190,7 +190,7 @@
 
             <Button
                 android:id="@+id/btnGuardar"
-                android:text="Guardar"
+                android:text="@string/guardar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:background="@color/colorPrimary"

@@ -62,7 +62,7 @@ public class Quinta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quinta);
 
-        getSupportActionBar().setTitle("Quinta");
+        getSupportActionBar().setTitle(R.string.quinta);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 

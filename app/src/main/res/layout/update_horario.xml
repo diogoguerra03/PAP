@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Atualizar horário"
+        android:text="@string/atualizarHorario"
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="#fff"
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Disciplina"
+                android:text="@string/disciplinaIN"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -50,7 +50,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Disciplina"
+                android:hint="@string/disciplina"
                 android:maxLength="20"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sala"
+                android:text="@string/salaIN"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -90,7 +90,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Sala"
+                android:hint="@string/sala"
                 android:maxLength="10"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -117,7 +117,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="Horas:"
+                android:text="@string/horas"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -184,7 +184,7 @@
                 android:textSize="18sp"
                 android:textAllCaps="false"
                 android:layout_margin="10dp"
-                android:text="Cancelar"/>
+                android:text="@string/cancelar"/>
 
         </RelativeLayout>
 
@@ -202,7 +202,7 @@
                 android:textAllCaps="false"
                 android:layout_margin="10dp"
                 android:textSize="18sp"
-                android:text="Atualizar"/>
+                android:text="@string/atualizar"/>
 
         </RelativeLayout>
     </LinearLayout>

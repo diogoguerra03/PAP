@@ -62,7 +62,7 @@ public class Sexta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sexta);
 
-        getSupportActionBar().setTitle("Sexta");
+        getSupportActionBar().setTitle(R.string.sexta);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
