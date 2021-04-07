@@ -44,10 +44,10 @@
                     android:layout_marginBottom="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dados do perfil"
+                    android:text="@string/dadosPerfil"
                     android:textAllCaps="true"
                     android:textSize="24sp"
-                    android:gravity="right"
+                    android:gravity="center"
                     android:textStyle="bold"/>
             </RelativeLayout>
         </LinearLayout>
@@ -69,7 +69,7 @@
                         android:drawableLeft="@drawable/ic_pessoa_cinza_24dp"
                         android:drawablePadding="5dp"
                         android:drawableTint="@android:color/darker_gray"
-                        android:hint="Nome de utilizador" />
+                        android:hint="@string/nomeUtilizdor" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@android:color/holo_blue_light"
-            android:text="Mudar password"
+            android:text="@string/mudarPass"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@android:color/holo_red_light"
-            android:text="Terminar sessão"
+            android:text="@string/terminarSessão"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 

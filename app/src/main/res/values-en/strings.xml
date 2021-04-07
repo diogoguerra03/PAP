@@ -24,4 +24,20 @@
     <string name="disciplinaIN">Subject:</string>
     <string name="tarefaIN">Task:</string>
     <string name="atualizarHorario">Update schedule</string>
+    <string name="perfil">Profile</string>
+    <string name="mudarPass">Change password</string>
+    <string name="terminarSessão">Logout</string>
+    <string name="dadosPerfil">Profile information</string>
+    <string name="nomeUtilizdor">Username</string>
+    <string name="alterarPass">Change password</string>
+    <string name="passAtual">Current password</string>
+    <string name="passNova">New password</string>
+    <string name="repetirPassNova">Repeat new password</string>
+    <string name="alterar">Change</string>
+    <string name="fechar">Close</string>
+    <string name="sessaoTerminar">Your session will end</string>
+    <string name="terminar">Logout</string>
+    <string name="desejaTerminar">Would you like to logout?</string>
+    <string name="semLigacao">No network connection</string>
+    <string name="tentarNovamente">Retry</string>
 </resources>

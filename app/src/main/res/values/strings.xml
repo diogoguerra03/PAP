@@ -44,5 +44,24 @@
     <string name="horas">Horas:</string>
     <string name="atualizarHorario">Atualizar horário</string>
 
+    <!-- Perfil -->
+    <string name="perfil">Perfil</string>
+    <string name="dadosPerfil">Dados do perfil</string>
+    <string name="nomeUtilizdor">Nome de utilizador</string>
+    <string name="mudarPass">Mudar password</string>
+    <string name="terminarSessão">Terminar sessão</string>
+    <string name="alterarPass">Alterar password</string>
+    <string name="passAtual">Password atual</string>
+    <string name="passNova">Nova password</string>
+    <string name="repetirPassNova">Repetir nova password</string>
+    <string name="alterar">Alterar</string>
+    <string name="sessaoTerminar">A sua sessão vai terminar</string>
+    <string name="fechar">Fechar</string>
+    <string name="terminar">Terminar</string>
+    <string name="desejaTerminar">Deseja terminar sessão?</string>
+
+    <!-- Dialog Check internet -->
+    <string name="semLigacao">Sem ligação à internet</string>
+    <string name="tentarNovamente">Tentar novamente</string>
 
 </resources>
