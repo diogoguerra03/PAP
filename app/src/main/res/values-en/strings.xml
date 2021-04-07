@@ -40,4 +40,10 @@
     <string name="desejaTerminar">Would you like to logout?</string>
     <string name="semLigacao">No network connection</string>
     <string name="tentarNovamente">Retry</string>
+    <string name="iniciarSessao">Login</string>
+    <string name="entrar">Login</string>
+    <string name="registo">Don\'t have an account? Sign up</string>
+    <string name="novoUtilizador">New user</string>
+    <string name="nome">Name</string>
+    <string name="confirmarPass">Confirm password</string>
 </resources>

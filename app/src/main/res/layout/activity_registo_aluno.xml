@@ -30,7 +30,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:gravity="center"
-        android:text="Novo utilizador"
+        android:text="@string/novoUtilizador"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editNomeAluno"
@@ -70,7 +70,7 @@
         android:drawableLeft="@drawable/ic_pessoa_cinza_24dp"
         android:drawablePadding="5dp"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="@string/nome"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/editEmailAluno"
@@ -141,7 +141,7 @@
             android:id="@+id/editConfirmarPasswordAluno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirmar password"
+            android:hint="@string/confirmarPass"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>

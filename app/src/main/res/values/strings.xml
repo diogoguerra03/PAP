@@ -14,6 +14,16 @@
     <string name="menu_gallery" translatable="false">Gallery</string>
     <string name="menu_slideshow" translatable="false">Slideshow</string>
 
+    <!-- Login -->
+    <string name="iniciarSessao">Iniciar sessão</string>
+    <string name="entrar">Entrar</string>
+    <string name="registo">Não tens conta? Faz o registo</string>
+
+    <!-- Registo -->
+    <string name="novoUtilizador">Novo utilizador</string>
+    <string name="nome">Nome</string>
+    <string name="confirmarPass">Confirmar password</string>
+
     <!-- Noticias -->
     <string name="procurar">Procurar</string>
     <string name="noticias">Noticias</string>
