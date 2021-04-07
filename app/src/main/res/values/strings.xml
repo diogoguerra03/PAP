@@ -23,6 +23,7 @@
     <string name="novoUtilizador">Novo utilizador</string>
     <string name="nome">Nome</string>
     <string name="confirmarPass">Confirmar password</string>
+    <string name="registar">Registar</string>
 
     <!-- Noticias -->
     <string name="procurar">Procurar</string>

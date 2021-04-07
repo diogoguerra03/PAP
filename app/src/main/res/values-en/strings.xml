@@ -46,4 +46,5 @@
     <string name="novoUtilizador">New user</string>
     <string name="nome">Name</string>
     <string name="confirmarPass">Confirm password</string>
+    <string name="registar">Sign up</string>
 </resources>
