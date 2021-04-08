@@ -168,11 +168,11 @@ public class TodoFragment extends Fragment {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 
-        alertDialog.setTitle("Excluir tarefa");
-        alertDialog.setMessage("Tem a certeza que deseja excluir a tarefa?");
+        alertDialog.setTitle(R.string.excluirTarefa);
+        alertDialog.setMessage(R.string.certezaExcluirTarefa);
         alertDialog.setCancelable(false);
 
-        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(R.string.confirmar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int position = viewHolder.getAdapterPosition();
@@ -189,11 +189,11 @@ public class TodoFragment extends Fragment {
             }
         });
 
-        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(),
-                        "Cancelado",
+                        R.string.cancelado,
                         Toast.LENGTH_SHORT).show();
                 adapterTarefa.notifyDataSetChanged();
             }
@@ -262,17 +262,17 @@ public class TodoFragment extends Fragment {
 
                         }else{
                             Toast.makeText(getActivity(),
-                                    "Preencha a data corretamente!",
+                                    R.string.preencherData,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Toast.makeText(getActivity(),
-                                "Descrição não foi preenchida!",
+                                R.string.preencherDescricao,
                                 Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(getActivity(),
-                            "Tarefa não foi preenchida!",
+                            R.string.preencherDisciplina,
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -399,14 +399,14 @@ public class TodoFragment extends Fragment {
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
                             popUpdate.dismiss();
                         }else{
-                            Toast.makeText(getActivity(), "Preencha a data corretamente", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(),  R.string.preencherData, Toast.LENGTH_LONG).show();
                         }
                     }else{
-                        Toast.makeText(getActivity(), "Digite a descrição", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), R.string.preencherDescricao, Toast.LENGTH_LONG).show();
                     }
 
                 }else{
-                    Toast.makeText(getActivity(), "Digite a tarefa", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), R.string.preencherDisciplina, Toast.LENGTH_LONG).show();
                 }
 
 

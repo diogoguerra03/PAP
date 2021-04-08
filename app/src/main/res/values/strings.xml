@@ -20,6 +20,7 @@
     <string name="registo">Não tens conta? Faz o registo</string>
 
     <!-- Registo -->
+    <string name="registoText">Registo</string>
     <string name="novoUtilizador">Novo utilizador</string>
     <string name="nome">Nome</string>
     <string name="confirmarPass">Confirmar password</string>
@@ -75,4 +76,35 @@
     <string name="semLigacao">Sem ligação à internet</string>
     <string name="tentarNovamente">Tentar novamente</string>
 
+    <!-- Dialog confirmar exclusao -->
+    <string name="confirmar">Confirmar</string>
+    <string name="cancelado">Cancelado</string>
+    <string name="excluirAula">Excluir aula</string>
+    <string name="certezaExcluirAula">Tem a certeza que deseja excluir a aula?</string>
+    <string name="excluirTarefa">Excluir tarefa</string>
+    <string name="certezaExcluirTarefa">Tem a certeza que deseja excluir a tarefa?</string>
+
+    <!-- Toasts -->
+    <string name="preencherSenha">Preencha a password!</string>
+    <string name="preencherSenhaAtual">Preenche a tua password atual!</string>
+    <string name="novaPassCurta">A nova password é muito curta!</string>
+    <string name="passAtualizada">Password atualizada com sucesso</string>
+    <string name="campoObrigatorio">Campo obrigatório</string>
+    <string name="utilizadorSemRegisto">Utilizador não está registado.</string>
+    <string name="naoCorrespondem">E-mail e senha não correspondem a um utilizador registado</string>
+    <string name="erroAoEntrar">Erro ao tentar entrar: </string>
+    <string name="passCurta">As passwords são curtas</string>
+    <string name="passNaoCorresponde">As passwords não são iguais</string>
+    <string name="passConfirmacaoVazia">Preencha a confirmação da password!</string>
+    <string name="preencherNome">Preencha o nome</string>
+    <string name="preencherEmail">Preencha o email</string>
+    <string name="preencherhora">Hora não foi preenchida!</string>
+    <string name="preencherSala">Sala não foi preenchida!</string>
+    <string name="preencherDisciplina">Disciplina não foi preenchida!</string>
+    <string name="digitarHora">Digite a hora corretamente</string>
+    <string name="digitarSala">Digite a sala corretamente</string>
+    <string name="digitarDisciplina">Digite a disciplina corretamente</string>
+    <string name="linkCopiado">O link foi copiado!</string>
+    <string name="preencherData">Preencha a data corretamente</string>
+    <string name="preencherDescricao">Preencha a descrição corretamente</string>
 </resources>

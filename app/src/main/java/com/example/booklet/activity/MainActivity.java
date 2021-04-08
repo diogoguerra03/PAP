@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     }else{
                         campoSenha.requestFocus();
                         Toast.makeText(getApplicationContext(),
-                                "Preencha a senha!",
+                                R.string.preencherSenha,
                                 Toast.LENGTH_SHORT).show();
                     }
                 }else{
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (FirebaseAuthInvalidUserException e) {
                         excecao = "Utilizador não está registado.";
                     } catch (FirebaseAuthInvalidCredentialsException e) {
-                        excecao = "E-mail e senha não correspondem a um utilizador regisado";
+                        excecao = "E-mail e senha não correspondem a um utilizador registado";
                     } catch (Exception e) {
                         excecao = "Erro ao tentar entrar: " + e.getMessage();
                         e.printStackTrace();

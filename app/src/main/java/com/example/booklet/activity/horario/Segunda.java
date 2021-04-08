@@ -168,22 +168,22 @@ public class Segunda extends AppCompatActivity {
                                 dialog.dismiss();
                             }else{
                                 Toast.makeText(Segunda.this,
-                                        "Hora não foi preenchida!",
+                                        R.string.preencherhora,
                                         Toast.LENGTH_SHORT).show();
                             }
                         }else{
                             Toast.makeText(Segunda.this,
-                                    "Hora não foi preenchida!",
+                                    R.string.preencherhora,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Toast.makeText(Segunda.this,
-                                "Descrição não foi preenchida!",
+                                R.string.preencherSala,
                                 Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(Segunda.this,
-                            "Tarefa não foi preenchida!",
+                            R.string.preencherDisciplina,
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -288,14 +288,14 @@ public class Segunda extends AppCompatActivity {
                             horarioSegundaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
                         }else{
-                            Toast.makeText(Segunda.this, "Digite a hora corretamente", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Segunda.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
                         }
                     }else{
-                        Toast.makeText(Segunda.this, "Digite a descrição", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Segunda.this, R.string.digitarSala, Toast.LENGTH_LONG).show();
                     }
 
                 }else{
-                    Toast.makeText(Segunda.this, "Digite a tarefa", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Segunda.this, R.string.digitarDisciplina, Toast.LENGTH_LONG).show();
                 }
 
 
@@ -345,11 +345,11 @@ public class Segunda extends AppCompatActivity {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Segunda.this);
 
-        alertDialog.setTitle("Excluir aula");
-        alertDialog.setMessage("Tem a certeza que deseja excluir a aula?");
+        alertDialog.setTitle(R.string.excluirAula);
+        alertDialog.setMessage(R.string.certezaExcluirAula);
         alertDialog.setCancelable(false);
 
-        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(R.string.confirmar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int position = viewHolder.getAdapterPosition();
@@ -366,11 +366,11 @@ public class Segunda extends AppCompatActivity {
             }
         });
 
-        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(Segunda.this,
-                        "Cancelado",
+                        R.string.cancelado,
                         Toast.LENGTH_SHORT).show();
                 adapterHorario.notifyDataSetChanged();
             }

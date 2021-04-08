@@ -42,7 +42,7 @@ public class RegistoAlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo_aluno);
 
-        getSupportActionBar().setTitle("Registo");
+        getSupportActionBar().setTitle(R.string.registoText);
 
         buttonRegistarAluno = findViewById(R.id.buttonRegistarAluno);
         campoNome = findViewById(R.id.editNomeAluno);
@@ -73,13 +73,13 @@ public class RegistoAlunoActivity extends AppCompatActivity {
                                 } else if (textoSenha.length() < 6 || textoconfirmarSenha.length() < 6) {
                                     Toast.makeText(
                                             getApplicationContext(),
-                                            "As passwords são curtas",
+                                            R.string.passCurta,
                                             Toast.LENGTH_SHORT)
                                             .show();
                                 } else {
                                     Toast.makeText(
                                             getApplicationContext(),
-                                            "As passwords não são iguais",
+                                            R.string.passNaoCorresponde,
                                             Toast.LENGTH_SHORT)
                                             .show();
                                 }
@@ -87,7 +87,7 @@ public class RegistoAlunoActivity extends AppCompatActivity {
                                 campoConfirmarSenha.requestFocus();
                                 Toast.makeText(
                                         getApplicationContext(),
-                                        "Preencha a confirmação da password!",
+                                        R.string.passConfirmacaoVazia,
                                         Toast.LENGTH_LONG
                                 ).show();
                             }
@@ -95,7 +95,7 @@ public class RegistoAlunoActivity extends AppCompatActivity {
                             campoSenha.requestFocus();
                             Toast.makeText(
                                     getApplicationContext(),
-                                    "Preencha a password!",
+                                    R.string.preencherSenha,
                                     Toast.LENGTH_LONG
                             ).show();
                         }
@@ -104,7 +104,7 @@ public class RegistoAlunoActivity extends AppCompatActivity {
                         campoEmail.setError("Campo obrigatório");
                         Toast.makeText(
                                 getApplicationContext(),
-                                "Preencha o Email!",
+                                R.string.preencherEmail,
                                 Toast.LENGTH_LONG
                         ).show();
                     }
@@ -113,7 +113,7 @@ public class RegistoAlunoActivity extends AppCompatActivity {
                     campoNome.setError("Campo obrigatório");
                     Toast.makeText(
                             getApplicationContext(),
-                            "Preencha o nome!",
+                            R.string.preencherNome,
                             Toast.LENGTH_LONG
                     ).show();
                 }

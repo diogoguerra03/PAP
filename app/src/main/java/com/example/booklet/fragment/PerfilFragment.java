@@ -157,7 +157,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Toast.makeText(getActivity(), "Cancelado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.cancelado, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -168,17 +168,17 @@ public class PerfilFragment extends Fragment {
                 String newPass = newPasswordEt.getText().toString().trim();
                 String confirmNewPass = confirmNewPasswordEt.getText().toString().trim();
                 if (TextUtils.isEmpty(oldPass)){
-                    Toast.makeText(getActivity(), "Preenche a tua password atual...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.preencherSenhaAtual, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (confirmNewPass.equals(newPass)){
                     if (newPass.length()<6){
-                        Toast.makeText(getActivity(), "A nova password é muito curta...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.novaPassCurta, Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }else{
-                    Toast.makeText(getActivity(), "As novas passwords não coincidem...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.passNaoCorresponde, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -204,7 +204,7 @@ public class PerfilFragment extends Fragment {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(getActivity(), "Password atualizada com sucesso", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), R.string.passAtualizada, Toast.LENGTH_SHORT).show();
                                         MostrarFimSessao();
                                     }
                                 })

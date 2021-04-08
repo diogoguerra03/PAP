@@ -145,11 +145,11 @@ public class Quarta extends AppCompatActivity {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Quarta.this);
 
-        alertDialog.setTitle("Excluir aula");
-        alertDialog.setMessage("Tem a certeza que deseja excluir a aula?");
+        alertDialog.setTitle(R.string.excluirAula);
+        alertDialog.setMessage(R.string.certezaExcluirAula);
         alertDialog.setCancelable(false);
 
-        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(R.string.confirmar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int position = viewHolder.getAdapterPosition();
@@ -166,11 +166,11 @@ public class Quarta extends AppCompatActivity {
             }
         });
 
-        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(Quarta.this,
-                        "Cancelado",
+                        R.string.cancelado,
                         Toast.LENGTH_SHORT).show();
                 adapterHorario.notifyDataSetChanged();
             }
@@ -233,22 +233,22 @@ public class Quarta extends AppCompatActivity {
                                 dialog.dismiss();
                             } else {
                                 Toast.makeText(Quarta.this,
-                                        "Hora não foi preenchida!",
+                                        R.string.preencherhora,
                                         Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(Quarta.this,
-                                    "Hora não foi preenchida!",
+                                    R.string.preencherhora,
                                     Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(Quarta.this,
-                                "Descrição não foi preenchida!",
+                                R.string.preencherSala,
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(Quarta.this,
-                            "Tarefa não foi preenchida!",
+                            R.string.preencherDisciplina,
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -353,14 +353,14 @@ public class Quarta extends AppCompatActivity {
                             horarioQuartaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
                         } else {
-                            Toast.makeText(Quarta.this, "Digite a hora corretamente", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Quarta.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(Quarta.this, "Digite a descrição", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Quarta.this, R.string.digitarSala, Toast.LENGTH_LONG).show();
                     }
 
                 } else {
-                    Toast.makeText(Quarta.this, "Digite a tarefa", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Quarta.this, R.string.digitarDisciplina, Toast.LENGTH_LONG).show();
                 }
 
 

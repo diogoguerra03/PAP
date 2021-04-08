@@ -93,7 +93,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
                 clipboardManager.setPrimaryClip(clipData);
 
-                Toast.makeText(context, "O link foi copiado!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.linkCopiado, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
