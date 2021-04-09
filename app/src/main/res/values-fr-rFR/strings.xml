@@ -14,8 +14,8 @@
     <string name="tarefas">Tâches</string>
     <string name="tarefa">Tâche</string>
     <string name="tarefaIN">Tâche:</string>
-    <string name="disciplina">Sujet</string>
-    <string name="disciplinaIN">Sujet:</string>
+    <string name="disciplina">Discipline</string>
+    <string name="disciplinaIN">Discipline:</string>
     <string name="data">Date:</string>
     <string name="cancelar">Annuler</string>
     <string name="guardar">Sauvez</string>
@@ -29,7 +29,7 @@
     <string name="sexta">Vendredi</string>
     <string name="adicionarNovaDisciplina">Ajouter un nouveau sujet</string>
     <string name="salaIN">Salle de classe:</string>
-    <string name="sala">Salle de classe:</string>
+    <string name="sala">Salle de classe</string>
     <string name="horas">Heures:</string>
     <string name="atualizarHorario">Calendrier des mises à jour</string>
     <string name="perfil">Profil</string>
@@ -76,4 +76,5 @@
     <string name="linkCopiado">Le lien a été copié !</string>
     <string name="preencherData">Remplissez correctement la date</string>
     <string name="preencherDescricao">Remplissez correctement la description</string>
+    <string name="email">Email</string>
 </resources>

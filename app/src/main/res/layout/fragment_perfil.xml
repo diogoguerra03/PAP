@@ -92,7 +92,7 @@
                     android:drawableLeft="@drawable/ic_email_cinza_24dp"
                     android:drawablePadding="5dp"
                     android:drawableTint="@android:color/darker_gray"
-                    android:hint="Email" />
+                    android:hint="@string/email" />
             </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -76,4 +76,5 @@
     <string name="linkCopiado">The link was copied!</string>
     <string name="preencherData">Fill in the date correctly</string>
     <string name="preencherDescricao">Fill in the description correctly</string>
+    <string name="email">Email</string>
 </resources>

@@ -20,7 +20,7 @@
     <string name="registo">Não tens conta? Faz o registo</string>
 
     <!-- Registo -->
-    <string name="registoText">Registo</string>
+    <string name="registoText">Registro</string>
     <string name="novoUtilizador">Novo utilizador</string>
     <string name="nome">Nome</string>
     <string name="confirmarPass">Confirmar password</string>
@@ -71,6 +71,7 @@
     <string name="fechar">Fechar</string>
     <string name="terminar">Terminar</string>
     <string name="desejaTerminar">Deseja terminar sessão?</string>
+    <string name="email">Email</string>
 
     <!-- Dialog Check internet -->
     <string name="semLigacao">Sem ligação à internet</string>
