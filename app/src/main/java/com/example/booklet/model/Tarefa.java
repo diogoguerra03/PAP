@@ -13,7 +13,6 @@ public class Tarefa {
 
     private String tarefa, descricao,data, Key;
 
-
     public Tarefa(){
 
     }

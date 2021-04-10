@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -72,6 +73,7 @@ public class TodoFragment extends Fragment {
     private String tarefaPreenchida;
     private String descricaoPreenchida;
     private String dataPreenchida;
+
 
     //PopUp calendario
     private ImageButton btnCalendario;
