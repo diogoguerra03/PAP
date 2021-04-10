@@ -108,6 +108,11 @@ public class TodoFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
                 tarefa = tarefas.get(position);
 
                 tarefaPreenchida = tarefa.getTarefa();
@@ -115,11 +120,6 @@ public class TodoFragment extends Fragment {
                 dataPreenchida = tarefa.getData();
 
                 atualizarTarefa();
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
             }
 
             @Override

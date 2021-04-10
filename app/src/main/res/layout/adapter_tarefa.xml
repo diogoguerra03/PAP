@@ -78,13 +78,10 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-                    <ToggleButton
-                        android:id="@+id/toogleBtnRealizada"
-                        android:layout_width="wrap_content"
+                    <CheckBox
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:textOff="Por fazer"
-                        android:textOn="Realizada" />
+                        android:text="Realizada"/>
                 </RelativeLayout>
             </LinearLayout>
     </LinearLayout>
