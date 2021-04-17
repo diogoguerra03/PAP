@@ -77,4 +77,6 @@
     <string name="preencherData">Fill in the date correctly</string>
     <string name="preencherDescricao">Fill in the description correctly</string>
     <string name="email">Email</string>
+    <string name="tarefaRealizada">Task done</string>
+    <string name="tarefaNaoRealizada">Pending task</string>
 </resources>

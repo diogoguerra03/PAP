@@ -78,12 +78,12 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/txtRealizada"
+                    <CheckBox
+                        android:id="@+id/CheckBoxRealizada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:enabled="true"
-                        android:text="Por fazer"
+                        android:text="Realizada"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
                 </RelativeLayout>

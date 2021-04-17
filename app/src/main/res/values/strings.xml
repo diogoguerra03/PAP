@@ -42,6 +42,8 @@
     <string name="guardar">Guardar</string>
     <string name="atualizarTarefa">Atualizar Tarefa</string>
     <string name="atualizar">Atualizar</string>
+    <string name="tarefaRealizada">Tarefa realizada</string>
+    <string name="tarefaNaoRealizada">Tarefa por fazer</string>
 
     <!-- Horario -->
     <string name="horario">Horário</string>

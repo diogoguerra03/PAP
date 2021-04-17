@@ -39,8 +39,8 @@ public class AdapterTarefa extends RecyclerView.Adapter<AdapterTarefa.MyViewHold
         holder.titulo.setText(tarefa.getTarefa());
         holder.descricao.setText(String.valueOf(tarefa.getDescricao()));
         holder.data.setText(tarefa.getData());
+        holder.realizada.setChecked(tarefa.getRealizada());
     }
-
 
     @Override
     public int getItemCount() {
@@ -50,6 +50,7 @@ public class AdapterTarefa extends RecyclerView.Adapter<AdapterTarefa.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView titulo, descricao, data;
+        CheckBox realizada;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -57,6 +58,7 @@ public class AdapterTarefa extends RecyclerView.Adapter<AdapterTarefa.MyViewHold
             titulo = itemView.findViewById(R.id.tarefaTv);
             descricao = itemView.findViewById(R.id.descricaoTv);
             data = itemView.findViewById(R.id.dataTv);
+            realizada = itemView.findViewById(R.id.CheckBoxRealizada);
         }
 
     }

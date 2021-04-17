@@ -77,4 +77,6 @@
     <string name="preencherData">Remplissez correctement la date</string>
     <string name="preencherDescricao">Remplissez correctement la description</string>
     <string name="email">Email</string>
+    <string name="tarefaRealizada">Tâche effectuée</string>
+    <string name="tarefaNaoRealizada">Tâche à accomplir</string>
 </resources>

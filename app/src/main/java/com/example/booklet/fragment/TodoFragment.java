@@ -70,7 +70,7 @@ public class TodoFragment extends Fragment {
     private String descricaoPreenchida;
     private String dataPreenchida;
 
-    private TextView txtRealizada;
+    private CheckBox CheckBoxRealizada;
 
     //PopUp calendario
     private ImageButton btnCalendario;
@@ -90,7 +90,7 @@ public class TodoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_todo, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        txtRealizada = view.findViewById(R.id.txtRealizada);
+        CheckBoxRealizada = view.findViewById(R.id.CheckBoxRealizada);
 
         adapterTarefa = new AdapterTarefa(tarefas, getActivity());
 
