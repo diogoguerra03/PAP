@@ -78,10 +78,14 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-                    <CheckBox
+                    <TextView
+                        android:id="@+id/txtRealizada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Realizada"/>
+                        android:enabled="true"
+                        android:text="Por fazer"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
                 </RelativeLayout>
             </LinearLayout>
     </LinearLayout>

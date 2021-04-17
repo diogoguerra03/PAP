@@ -2,12 +2,8 @@ package com.example.booklet.fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 
@@ -74,6 +70,7 @@ public class TodoFragment extends Fragment {
     private String descricaoPreenchida;
     private String dataPreenchida;
 
+    private TextView txtRealizada;
 
     //PopUp calendario
     private ImageButton btnCalendario;
@@ -93,8 +90,9 @@ public class TodoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_todo, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
+        txtRealizada = view.findViewById(R.id.txtRealizada);
 
-        adapterTarefa = new AdapterTarefa(tarefas,getActivity());
+        adapterTarefa = new AdapterTarefa(tarefas, getActivity());
 
         //Configurar RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -105,14 +103,10 @@ public class TodoFragment extends Fragment {
         recyclerView.setAdapter(adapterTarefa);
         swipe();
 
+
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
                 tarefa = tarefas.get(position);
 
                 tarefaPreenchida = tarefa.getTarefa();
@@ -120,6 +114,40 @@ public class TodoFragment extends Fragment {
                 dataPreenchida = tarefa.getData();
 
                 atualizarTarefa();
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                tarefa = tarefas.get(position);
+                Boolean realizada = tarefa.getRealizada();
+
+                String emailUtilizador = auth.getCurrentUser().getEmail();
+                String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
+
+                if (realizada == false){
+                    HashMap hashRealizada = new HashMap();
+                    hashRealizada.put("realizada", true);
+
+                    tarefaRef = firebaseRef.child("tarefa")
+                            .child(idUtilizador);
+
+                    tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
+                    //txtRealizada.setText(tarefa.getRealizada().toString());
+                    Toast.makeText(getActivity(), "Realizada", Toast.LENGTH_SHORT).show();
+
+                }else{
+                        HashMap hashRealizada = new HashMap();
+                        hashRealizada.put("realizada", false);
+
+                        tarefaRef = firebaseRef.child("tarefa")
+                                .child(idUtilizador);
+
+                        tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
+                        //txtRealizada.setText(tarefa.getRealizada().toString());
+                        Toast.makeText(getActivity(), "Nao realizada", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
 
             @Override
@@ -138,7 +166,7 @@ public class TodoFragment extends Fragment {
         return view;
     }
 
-    public void swipe(){
+    public void swipe() {
 
         ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
             @Override
@@ -166,7 +194,7 @@ public class TodoFragment extends Fragment {
 
     }
 
-    public void excluirTarefa(final RecyclerView.ViewHolder viewHolder){
+    public void excluirTarefa(final RecyclerView.ViewHolder viewHolder) {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 
@@ -205,7 +233,7 @@ public class TodoFragment extends Fragment {
         alert.show();
     }
 
-    private void adicionarTarefa(){
+    private void adicionarTarefa() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = LayoutInflater.from(getActivity());
 
@@ -225,7 +253,7 @@ public class TodoFragment extends Fragment {
         campodata.setText(DateCustom.dataAtual());
         popAdd.show();
 
-       botaocancelar.setOnClickListener(new View.OnClickListener() {
+        botaocancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popAdd.dismiss();
@@ -247,9 +275,9 @@ public class TodoFragment extends Fragment {
                 String textoDescricao = campodescricao.getText().toString();
                 String textoData = campodata.getText().toString();
 
-                if (!textoTarefa.isEmpty()){
-                    if (!textoDescricao.isEmpty()){
-                        if (textoData.length() > 7){
+                if (!textoTarefa.isEmpty()) {
+                    if (!textoDescricao.isEmpty()) {
+                        if (textoData.length() > 7) {
 
                             tarefa = new Tarefa();
                             String data = campodata.getText().toString();
@@ -257,22 +285,22 @@ public class TodoFragment extends Fragment {
                             tarefa.setTarefa(campotarefa.getText().toString());
                             tarefa.setDescricao(campodescricao.getText().toString());
                             tarefa.setData(data);
-
+                            tarefa.setRealizada(false);
                             tarefa.salvar(data);
 
                             popAdd.dismiss();
 
-                        }else{
+                        } else {
                             Toast.makeText(getActivity(),
                                     R.string.preencherData,
                                     Toast.LENGTH_SHORT).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(),
                                 R.string.preencherDescricao,
                                 Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(getActivity(),
                             R.string.preencherDisciplina,
                             Toast.LENGTH_SHORT).show();
@@ -283,7 +311,7 @@ public class TodoFragment extends Fragment {
     }
 
     public void DateDialog() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
@@ -301,14 +329,14 @@ public class TodoFragment extends Fragment {
 
     };
 
-    private void updateLabel(){
+    private void updateLabel() {
         campodata = popAdd.findViewById(R.id.editData);
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.FRANCE);
         campodata.setText(sdf.format(myCalendar.getTime()));
     }
 
-    public void recuperarTarefas(){
+    public void recuperarTarefas() {
         String emailUtilizador = auth.getCurrentUser().getEmail();
         String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -319,7 +347,7 @@ public class TodoFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 tarefas.clear();
-                for(DataSnapshot dados: snapshot.getChildren()){
+                for (DataSnapshot dados : snapshot.getChildren()) {
                     Tarefa tarefa = dados.getValue(Tarefa.class);
                     tarefa.setKey(dados.getKey());
                     tarefas.add(tarefa);
@@ -336,7 +364,7 @@ public class TodoFragment extends Fragment {
         });
     }
 
-    private void atualizarTarefa(){
+    private void atualizarTarefa() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.update_tarefa, null);
@@ -379,9 +407,9 @@ public class TodoFragment extends Fragment {
                 String descricaoP = descricaoPreenchida;
                 String dataP = dataPreenchida;
 
-                if (!tarefaP.isEmpty()){
-                    if (!descricaoP.isEmpty()){
-                        if (dataP.length() > 7){
+                if (!tarefaP.isEmpty()) {
+                    if (!descricaoP.isEmpty()) {
+                        if (dataP.length() > 7) {
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
                             HashMap hashTarefa = new HashMap();
@@ -400,17 +428,16 @@ public class TodoFragment extends Fragment {
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashDescricao);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
                             popUpdate.dismiss();
-                        }else{
-                            Toast.makeText(getActivity(),  R.string.preencherData, Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getActivity(), R.string.preencherData, Toast.LENGTH_LONG).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(), R.string.preencherDescricao, Toast.LENGTH_LONG).show();
                     }
 
-                }else{
+                } else {
                     Toast.makeText(getActivity(), R.string.preencherDisciplina, Toast.LENGTH_LONG).show();
                 }
-
 
 
             }
@@ -427,7 +454,7 @@ public class TodoFragment extends Fragment {
     }
 
     public void DateDialogUpdate() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),dateUpdate, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateUpdate, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
@@ -445,7 +472,7 @@ public class TodoFragment extends Fragment {
 
     };
 
-    private void updateLabelUpdate(){
+    private void updateLabelUpdate() {
         campoDataAtualizada = popUpdate.findViewById(R.id.EditDataAtualizada);
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.FRANCE);

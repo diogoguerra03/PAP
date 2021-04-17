@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 public class Tarefa {
 
     private String tarefa, descricao,data, Key;
+    private Boolean realizada;
 
     public Tarefa(){
 
@@ -33,6 +34,14 @@ public class Tarefa {
                 .push()
                 .setValue(this);
 
+    }
+
+    public Boolean getRealizada() {
+        return realizada;
+    }
+
+    public void setRealizada(Boolean realizada) {
+        this.realizada = realizada;
     }
 
     public void setTarefa(String tarefa) {
