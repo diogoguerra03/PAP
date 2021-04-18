@@ -6,9 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.booklet.R;
 import com.example.booklet.config.ConfiguracaoFirebase;
@@ -96,5 +100,26 @@ public class PrincipalActivityAluno extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_ajuda, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.ic_ajuda){
+            Intent intent = new Intent(this,
+                    AjudaActivity.class);
+            startActivity(intent);
+            return false;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

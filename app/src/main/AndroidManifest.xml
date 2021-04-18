@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".activity.AjudaActivity"
+            android:parentActivityName=".activity.PrincipalActivityAluno"
+        />
         <activity
             android:name=".activity.PrincipalActivityAluno"
             android:label="@string/title_activity_principal"

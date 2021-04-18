@@ -26,6 +26,8 @@
     <string name="confirmarPass">Confirmar password</string>
     <string name="registar">Registar</string>
 
+    <string name="ajuda">Ajuda</string>
+
     <!-- Noticias -->
     <string name="procurar">Procurar</string>
     <string name="noticias">Noticias</string>

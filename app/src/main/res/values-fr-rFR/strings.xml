@@ -79,4 +79,5 @@
     <string name="email">Email</string>
     <string name="tarefaRealizada">Tâche effectuée</string>
     <string name="tarefaNaoRealizada">Tâche à accomplir</string>
+    <string name="ajuda">aide</string>
 </resources>

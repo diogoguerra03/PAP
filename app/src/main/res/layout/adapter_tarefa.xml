@@ -66,7 +66,7 @@
                         android:layout_margin="10dp"
                         android:textColor="#000"
                         android:text="@string/tarefa"
-                        android:textSize="15sp"
+                        android:textSize="18sp"
                         android:maxLines="3"/>
 
                 </RelativeLayout>
@@ -85,7 +85,7 @@
                         android:enabled="true"
                         android:text="Realizada"
                         android:textStyle="bold"
-                        android:textSize="18sp"/>
+                        android:textSize="14sp"/>
                 </RelativeLayout>
             </LinearLayout>
     </LinearLayout>
