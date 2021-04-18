@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.booklet.R;
 import com.example.booklet.activity.horario.Quarta;
@@ -40,6 +42,30 @@ public class HorarioFragment extends Fragment {
         Button BtnQuarta = view.findViewById(R.id.BtnQuarta);
         Button BtnQuinta = view.findViewById(R.id.BtnQuinta);
         Button BtnSexta = view.findViewById(R.id.BtnSexta);
+
+        ImageView imgSegunda = view.findViewById(R.id.imgSegunda);
+        ImageView imgTerca = view.findViewById(R.id.imgTerca);
+        ImageView imgQuarta = view.findViewById(R.id.imgQuarta);
+        ImageView imgQuinta = view.findViewById(R.id.imgQuinta);
+        ImageView imgSexta = view.findViewById(R.id.imgSexta);
+
+        String segunda = String.valueOf(BtnSegunda.getText());
+        String terca = String.valueOf(BtnTerca.getText());
+        String quarta = String.valueOf(BtnQuarta.getText());
+        String quinta = String.valueOf(BtnQuinta.getText());
+        String sexta = String.valueOf(BtnSexta.getText());
+
+        if (segunda.equals("Segunda")){
+            imgSegunda.setImageResource(R.drawable.s);
+        }
+
+        if (terca.equals("Terça")){
+            imgSegunda.setImageResource(R.drawable.t);
+        }
+
+        if (quarta.equals("Quarta")){
+            imgSegunda.setImageResource(R.drawable.q);
+        }
 
         BtnSegunda.setOnClickListener(new View.OnClickListener() {
             @Override

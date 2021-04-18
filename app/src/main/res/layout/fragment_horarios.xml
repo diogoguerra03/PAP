@@ -22,11 +22,11 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgSegunda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/segunda" />
+                app:srcCompat="@drawable/s" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -85,12 +85,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center">
+
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgTerca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/terca" />
+                app:srcCompat="@drawable/t" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -109,11 +110,11 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imgQuarta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/quarta" />
+                app:srcCompat="@drawable/q" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -171,12 +172,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center">
+
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imgQuinta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/quarta" />
+                app:srcCompat="@drawable/q" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -194,11 +196,11 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imgSexta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/segunda" />
+                app:srcCompat="@drawable/s" />
         </RelativeLayout>
 
         <RelativeLayout
