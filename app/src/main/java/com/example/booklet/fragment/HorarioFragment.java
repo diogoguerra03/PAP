@@ -55,16 +55,59 @@ public class HorarioFragment extends Fragment {
         String quinta = String.valueOf(BtnQuinta.getText());
         String sexta = String.valueOf(BtnSexta.getText());
 
-        if (segunda.equals("Segunda")){
+        //imagem da segunda
+        if (segunda.equals("Segunda")) {
             imgSegunda.setImageResource(R.drawable.s);
+        } else if (segunda.equals("Monday")) {
+            imgSegunda.setImageResource(R.drawable.m);
+        } else if (segunda.equals("Lundi")) {
+            imgSegunda.setImageResource(R.drawable.l);
+        } else if (segunda.equals("Lunes")) {
+            imgSegunda.setImageResource(R.drawable.l);
         }
 
-        if (terca.equals("Terça")){
-            imgSegunda.setImageResource(R.drawable.t);
+        //imagem da terça
+        if (terca.equals("Terça")) {
+            imgTerca.setImageResource(R.drawable.t);
+        } else if (terca.equals("Tuesday")) {
+            imgTerca.setImageResource(R.drawable.t);
+        } else if (terca.equals("Mardi")) {
+            imgTerca.setImageResource(R.drawable.m);
+        } else if (terca.equals("Martes")) {
+            imgTerca.setImageResource(R.drawable.m);
         }
 
-        if (quarta.equals("Quarta")){
-            imgSegunda.setImageResource(R.drawable.q);
+        //imagem da quarta
+        if (quarta.equals("Quarta")) {
+            imgQuarta.setImageResource(R.drawable.q);
+        } else if (quarta.equals("Wednesday")) {
+            imgQuarta.setImageResource(R.drawable.w);
+        } else if (quarta.equals("Mercredi")) {
+            imgQuarta.setImageResource(R.drawable.m);
+        } else if (quarta.equals("Miércoles")) {
+            imgQuarta.setImageResource(R.drawable.m);
+        }
+
+        //imagem da quinta
+        if (quinta.equals("Quinta")) {
+            imgQuinta.setImageResource(R.drawable.q);
+        } else if (quinta.equals("Thursday")) {
+            imgQuinta.setImageResource(R.drawable.t);
+        } else if (quinta.equals("Jeudi")) {
+            imgQuinta.setImageResource(R.drawable.j);
+        } else if (quinta.equals("Jueves")) {
+            imgQuinta.setImageResource(R.drawable.j);
+        }
+
+        //imagem da sexta
+        if (sexta.equals("Sexta")) {
+            imgSexta.setImageResource(R.drawable.s);
+        } else if (sexta.equals("Friday")) {
+            imgSexta.setImageResource(R.drawable.f);
+        } else if (sexta.equals("Vendredi")) {
+            imgSexta.setImageResource(R.drawable.v);
+        } else if (sexta.equals("Viernes")) {
+            imgSexta.setImageResource(R.drawable.v);
         }
 
         BtnSegunda.setOnClickListener(new View.OnClickListener() {

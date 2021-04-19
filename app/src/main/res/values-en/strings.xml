@@ -80,4 +80,5 @@
     <string name="tarefaRealizada">Task done</string>
     <string name="tarefaNaoRealizada">Pending task</string>
     <string name="ajuda">Help</string>
+    <string name="realizada">Done</string>
 </resources>

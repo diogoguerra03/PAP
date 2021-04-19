@@ -46,6 +46,7 @@
     <string name="atualizar">Atualizar</string>
     <string name="tarefaRealizada">Tarefa realizada</string>
     <string name="tarefaNaoRealizada">Tarefa por fazer</string>
+    <string name="realizada">Realizada</string>
 
     <!-- Horario -->
     <string name="horario">Horário</string>
