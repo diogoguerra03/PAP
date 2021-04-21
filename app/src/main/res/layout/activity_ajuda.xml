@@ -179,6 +179,7 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/btnFacebook"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="5dp"
@@ -199,6 +200,7 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/btnInsta"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="5dp"
