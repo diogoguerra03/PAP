@@ -421,12 +421,16 @@ public class TodoFragment extends Fragment {
                             HashMap hashData = new HashMap();
                             hashData.put("data", dataPreenchida);
 
+                            HashMap hashRealizada = new HashMap();
+                            hashRealizada.put("realizada", false);
+
                             tarefaRef = firebaseRef.child("tarefa")
                                     .child(idUtilizador);
 
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashTarefa);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashDescricao);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
+                            tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
                             popUpdate.dismiss();
                         } else {
                             Toast.makeText(getActivity(), R.string.preencherData, Toast.LENGTH_LONG).show();
