@@ -16,7 +16,7 @@ import com.example.booklet.R;
 public class AjudaActivity extends AppCompatActivity {
 
     //Contactos
-    Button btnFb,btnInsta;
+    Button btnFb,btnInsta, btnGmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,14 @@ public class AjudaActivity extends AppCompatActivity {
 
         btnFb = findViewById(R.id.btnFacebook);
         btnInsta = findViewById(R.id.btnInsta);
+        btnGmail = findViewById(R.id.btnGmail);
+
+        btnGmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:diogoguerra578@gmail.com")));
+            }
+        });
 
         btnInsta.setOnClickListener(new View.OnClickListener() {
             @Override
