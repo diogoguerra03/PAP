@@ -47,6 +47,7 @@
     <string name="tarefaRealizada">Tarefa realizada</string>
     <string name="tarefaNaoRealizada">Tarefa por fazer</string>
     <string name="realizada">Realizada</string>
+    <string name="nRealizada">Não realizada</string>
 
     <!-- Horario -->
     <string name="horario">Horário</string>
@@ -89,6 +90,16 @@
     <string name="certezaExcluirAula">Tem a certeza que deseja excluir a aula?</string>
     <string name="excluirTarefa">Excluir tarefa</string>
     <string name="certezaExcluirTarefa">Tem a certeza que deseja excluir a tarefa?</string>
+
+    <!-- Ajuda -->
+    <string name="tituloAjuda">Selecione o tipo de ajuda</string>
+    <string name="entrarNaConta">Entrar na conta</string>
+    <string name="registarConta">Registar conta</string>
+    <string name="paginaNoticias">Página de notícias</string>
+    <string name="paginaTarefas">Página de tarefas</string>
+    <string name="paginaHorario">Página de horário</string>
+    <string name="paginaPerfil">Página de perfil</string>
+    <string name="contactos">Contactos</string>
 
     <!-- Toasts -->
     <string name="preencherSenha">Preencha a password!</string>

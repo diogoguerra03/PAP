@@ -14,7 +14,7 @@
         android:fontFamily="@font/g_bold"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Selecione o tipo de ajuda"
+        android:text="@string/tituloAjuda"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Entrar na conta"
+            android:text="@string/entrarNaConta"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -54,7 +54,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Registar conta"
+            android:text="@string/registarConta"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -66,7 +66,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Página de notícias"
+            android:text="@string/paginaNoticias"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -78,7 +78,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Página de tarefas"
+            android:text="@string/paginaTarefas"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -90,7 +90,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Página de horário"
+            android:text="@string/paginaHorario"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -102,7 +102,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/blue_background"
             android:fontFamily="@font/g_bold"
-            android:text="Página de perfil"
+            android:text="@string/paginaPerfil"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -125,7 +125,7 @@
             android:layout_marginTop="6dp"
             android:fontFamily="@font/g_bold"
             android:gravity="center"
-            android:text="Contactos"
+            android:text="@string/contactos"
             android:textColor="@color/black"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -81,4 +81,13 @@
     <string name="tarefaNaoRealizada">Pending task</string>
     <string name="ajuda">Help</string>
     <string name="realizada">Done</string>
+    <string name="nRealizada">Pending</string>
+    <string name="tituloAjuda">Select the type of help</string>
+    <string name="entrarNaConta">Login</string>
+    <string name="registarConta">Register Account</string>
+    <string name="paginaNoticias">News Page</string>
+    <string name="paginaTarefas">Tasks Page</string>
+    <string name="paginaHorario">Schedule Page</string>
+    <string name="paginaPerfil">Profile Page</string>
+    <string name="contactos">Contacts</string>
 </resources>

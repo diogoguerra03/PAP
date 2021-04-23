@@ -12,11 +12,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.booklet.R;
+import com.example.booklet.activity.ajuda.AjudaLogin;
 
 public class AjudaActivity extends AppCompatActivity {
 
     //Contactos
     Button btnFb,btnInsta, btnGmail;
+
+    //Ajuda
+    Button btnAjudaLogin, btnAjudaRegisto, btnAjudaNoticias, btnAjudaTarefa, btnAjudaHorario, btnAjudaPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,22 @@ public class AjudaActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
+        //Ajuda
+        btnAjudaLogin = findViewById(R.id.btnAjudaLogin);
+        btnAjudaRegisto = findViewById(R.id.btnAjudaRegisto);
+        btnAjudaNoticias = findViewById(R.id.btnAjudaNoticias);
+        btnAjudaTarefa = findViewById(R.id.btnAjudaTarefa);
+        btnAjudaHorario = findViewById(R.id.btnAjudaHorario);
+        btnAjudaPerfil = findViewById(R.id.btnAjudaPerfil);
+
+        btnAjudaLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaLogin.class));
+            }
+        });
+
+        //contactos
         btnFb = findViewById(R.id.btnFacebook);
         btnInsta = findViewById(R.id.btnInsta);
         btnGmail = findViewById(R.id.btnGmail);

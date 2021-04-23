@@ -81,4 +81,13 @@
     <string name="tarefaNaoRealizada">Tarea a realizar</string>
     <string name="ajuda">ayuda</string>
     <string name="realizada">Hecho</string>
+    <string name="nRealizada">no realizada</string>
+    <string name="tituloAjuda">Seleccione el tipo de ayuda</string>
+    <string name="entrarNaConta">Inicio de sesión</string>
+    <string name="registarConta">Registrar cuenta</string>
+    <string name="paginaPerfil">Página de perfil</string>
+    <string name="paginaHorario">Página de horarios</string>
+    <string name="paginaTarefas">Página de tareas</string>
+    <string name="paginaNoticias">Página de noticias</string>
+    <string name="contactos">Contactos</string>
 </resources>

@@ -133,7 +133,7 @@ public class TodoFragment extends Fragment {
 
                     tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
                     //txtRealizada.setText(tarefa.getRealizada().toString());
-                    Toast.makeText(getActivity(), "Realizada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.realizada, Toast.LENGTH_SHORT).show();
 
                 }else{
                         HashMap hashRealizada = new HashMap();
@@ -144,7 +144,7 @@ public class TodoFragment extends Fragment {
 
                         tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
                         //txtRealizada.setText(tarefa.getRealizada().toString());
-                        Toast.makeText(getActivity(), "Nao realizada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.nRealizada, Toast.LENGTH_SHORT).show();
 
                 }
 
