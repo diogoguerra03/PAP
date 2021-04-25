@@ -13,9 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.ajuda.AjudaRegisto"
+            android:parentActivityName=".activity.AjudaActivity"/>
+        <activity
             android:name=".activity.ajuda.AjudaLogin"
-            android:parentActivityName=".activity.AjudaActivity"
-            />
+            android:parentActivityName=".activity.AjudaActivity" />
         <activity
             android:name=".activity.AjudaActivity"
             android:parentActivityName=".activity.PrincipalActivityAluno" />

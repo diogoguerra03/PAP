@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.booklet.R;
 import com.example.booklet.activity.ajuda.AjudaLogin;
+import com.example.booklet.activity.ajuda.AjudaRegisto;
 
 public class AjudaActivity extends AppCompatActivity {
 
@@ -43,6 +44,13 @@ public class AjudaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AjudaActivity.this, AjudaLogin.class));
+            }
+        });
+
+        btnAjudaRegisto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaRegisto.class));
             }
         });
 

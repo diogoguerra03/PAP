@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:justificationMode="inter_word"
-        android:text='Esta página serve para os utilizadores entrarem nas suas contas. Para entrar tem que se inserir as credenciais (email e senha). As credenciais são inseridas nas caixas de texto e para entrar na conta, basta clicar no botão "Entrar".'
+        android:text='Para registar uma nova conta, o utilizador tem de clicar no texto abaixo do botão "Entrar" na página de iniciar sessão. Ao clicar no texto o utilizador é redirecionado para a página de registo. Quando o utilizador se encontrar na página de registo terá que inserir o seu nome, email, a sua palavra-passe e a confirmação da mesma. A palavra-passe terá de ter no mínimo 6 caracteres. '
         android:textSize="18sp"
         android:layout_margin="10dp"
         android:textColor="@color/black"/>
@@ -23,6 +23,6 @@
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login_page"/>
+        android:src="@drawable/registo_page"/>
 
 </LinearLayout>
