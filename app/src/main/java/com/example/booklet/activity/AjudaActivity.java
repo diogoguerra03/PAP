@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.booklet.R;
 import com.example.booklet.activity.ajuda.AjudaLogin;
+import com.example.booklet.activity.ajuda.AjudaNoticias;
 import com.example.booklet.activity.ajuda.AjudaRegisto;
 
 public class AjudaActivity extends AppCompatActivity {
@@ -39,6 +40,13 @@ public class AjudaActivity extends AppCompatActivity {
         btnAjudaTarefa = findViewById(R.id.btnAjudaTarefa);
         btnAjudaHorario = findViewById(R.id.btnAjudaHorario);
         btnAjudaPerfil = findViewById(R.id.btnAjudaPerfil);
+
+        btnAjudaNoticias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaNoticias.class));
+            }
+        });
 
         btnAjudaLogin.setOnClickListener(new View.OnClickListener() {
             @Override

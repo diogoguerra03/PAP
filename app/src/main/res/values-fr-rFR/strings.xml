@@ -90,4 +90,7 @@
     <string name="paginaHorario">Page des horaires</string>
     <string name="paginaPerfil">Page de profil</string>
     <string name="contactos">Contacts</string>
+    <string name="descricaoAjudaLogin">Cette page permet aux utilisateurs de se connecter à leur compte. Pour vous connecter, vous devez saisir les informations d\'identification (courriel et mot de passe). Les informations d\'identification sont saisies dans les zones de texte et pour accéder au compte, il suffit de cliquer sur le bouton \"Connexion\".</string>
+    <string name="descricaoAjudaRegisto">Pour enregistrer un nouveau compte, l\'utilisateur doit cliquer sur le texte souligné comme indiqué dans l\'image. En cliquant sur le texte, l\'utilisateur est redirigé vers la page d\'enregistrement. Lorsque l\'utilisateur se trouve sur la page d\'inscription, il doit saisir son nom, son adresse électronique, son mot de passe et la confirmation de celui-ci. Le mot de passe doit comporter au moins 6 caractères.</string>
+    <string name="descricaoAjudaNoticia">Sur cette page, l\'utilisateur dispose d\'un champ de recherche pour trouver une nouvelle spécifique. Les nouvelles sont listées avec leur image respective, leur titre, leur source et le nombre d\'heures de publication. Si l\'utilisateur souhaite lire une nouvelle, il lui suffit de cliquer dessus et le site Web s\'affiche, comme le montre la deuxième image. En appuyant sur l\'actualité pendant un moment, le lien vers le site Web est automatiquement copié dans le presse-papiers.</string>
 </resources>

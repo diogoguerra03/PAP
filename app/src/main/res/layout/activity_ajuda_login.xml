@@ -12,11 +12,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:justificationMode="inter_word"
-        android:text='Esta página serve para os utilizadores entrarem nas suas contas. Para entrar tem que se inserir as credenciais (email e senha). As credenciais são inseridas nas caixas de texto e para entrar na conta, basta clicar no botão "Entrar".'
-        android:textSize="18sp"
         android:layout_margin="10dp"
-        android:textColor="@color/black"/>
+        android:justificationMode="inter_word"
+        android:text="@string/descricaoAjudaLogin"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <ImageView
         android:layout_gravity="center"
