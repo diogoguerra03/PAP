@@ -93,4 +93,9 @@
     <string name="descricaoAjudaLogin">This page is for users to log into their accounts. To log in you must enter your credentials (email and password). The credentials are entered in the text boxes and to log into the account, simply click on the \"Log in\" button.</string>
     <string name="descricaoAjudaRegisto">"To register a new account, the user must click on the underlined text, as shown in the image. By clicking on the text the user is redirected to the registration page. When the user is on the registration page he has to enter his name, email, password and confirmation of the password. The password must be at least 6 characters long. "</string>
     <string name="descricaoAjudaNoticia">On this page the user will have a search box to look for a specific news item. The news are listed with its respective image, title, source and how many hours it was published. If the user wants to read a news story, just click on it and the website will appear, as shown on the second image. By pressing the news item for a while the link to the website is automatically copied to the clipboard.</string>
+    <string name="criarTarefa">Create task</string>
+    <string name="editarTarefa">Edit Task</string>
+    <string name="realizarTarefa">Perform task</string>
+    <string name="eliminarTarefa">Delete task</string>
+    <string name="descricaoAjudaTarefaPrincipal">On this page the user will create their own assignments by entering the course, assignment and due date. When creating the assignments they will be automatically listed, the user will be able to edit, delete and check if the assignment has already been done. If you need to in the creation, editing or deletion of the task, scroll down.</string>
 </resources>

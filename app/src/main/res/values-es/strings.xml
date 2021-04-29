@@ -93,4 +93,9 @@
     <string name="descricaoAjudaLogin">Esta página es para que los usuarios se conecten a sus cuentas. Para iniciar la sesión hay que introducir las credenciales (correo electrónico y contraseña). Las credenciales se introducen en los cuadros de texto y para entrar en la cuenta, basta con hacer clic en el botón \"Inicio de sesión\".</string>
     <string name="descricaoAjudaRegisto">"Para registrar una nueva cuenta, el usuario tiene que hacer clic en el texto subrayado como se muestra en la imagen. Al hacer clic en el texto, el usuario es redirigido a la página de registro. Cuando el usuario está en la página de registro tiene que introducir su nombre, su correo electrónico, su contraseña y la confirmación de la misma. La contraseña debe tener al menos 6 caracteres. "</string>
     <string name="descricaoAjudaNoticia">En esta página el usuario dispondrá de un cuadro de búsqueda para buscar una noticia concreta. Las noticias aparecen con su respectiva imagen, título, fuente y cuántas horas lleva publicada. Si el usuario quiere leer una noticia, sólo tiene que pulsar sobre ella y aparecerá la página web, como se muestra en la segunda imagen. Al pulsar la noticia durante un rato, el enlace a la página web se copia automáticamente en el portapapeles.</string>
+    <string name="criarTarefa">Crear tarea</string>
+    <string name="editarTarefa">Editar tarea</string>
+    <string name="realizarTarefa">Realizar la tarea</string>
+    <string name="eliminarTarefa">Eliminar la tarea</string>
+    <string name="descricaoAjudaTarefaPrincipal">En esta página el usuario puede crear sus propias tareas introduciendo el curso, la tarea y la fecha de vencimiento. Al crear las asignaciones se listarán automáticamente, el usuario puede editar, eliminar y comprobar si la asignación ha sido completada. Si necesitas crear, editar o eliminar una tarea, desliza el dedo hacia abajo.</string>
 </resources>

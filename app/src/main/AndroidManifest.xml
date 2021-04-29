@@ -12,8 +12,19 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ajuda.AjudaNoticias"
+        <activity android:name=".activity.ajuda.AjudaTarefaEliminar"
+            android:parentActivityName=".activity.ajuda.AjudaTarefaPrincipal"></activity>
+        <activity android:name=".activity.ajuda.AjudaTarefaRealizar"
+            android:parentActivityName=".activity.ajuda.AjudaTarefaPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaTarefaEditar"
+            android:parentActivityName=".activity.ajuda.AjudaTarefaPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaTarefaCriar"
+            android:parentActivityName=".activity.ajuda.AjudaTarefaPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaTarefaPrincipal"
             android:parentActivityName=".activity.AjudaActivity"/>
+        <activity
+            android:name=".activity.ajuda.AjudaNoticias"
+            android:parentActivityName=".activity.AjudaActivity" />
         <activity
             android:name=".activity.ajuda.AjudaRegisto"
             android:parentActivityName=".activity.AjudaActivity" />

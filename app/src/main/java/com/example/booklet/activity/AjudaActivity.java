@@ -15,6 +15,7 @@ import com.example.booklet.R;
 import com.example.booklet.activity.ajuda.AjudaLogin;
 import com.example.booklet.activity.ajuda.AjudaNoticias;
 import com.example.booklet.activity.ajuda.AjudaRegisto;
+import com.example.booklet.activity.ajuda.AjudaTarefaPrincipal;
 
 public class AjudaActivity extends AppCompatActivity {
 
@@ -59,6 +60,13 @@ public class AjudaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AjudaActivity.this, AjudaRegisto.class));
+            }
+        });
+
+        btnAjudaTarefa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaTarefaPrincipal.class));
             }
         });
 

@@ -103,6 +103,11 @@
     <string name="descricaoAjudaLogin">Esta página serve para os utilizadores entrarem nas suas contas. Para entrar tem que se inserir as credenciais (email e senha). As credenciais são inseridas nas caixas de texto e para entrar na conta, basta clicar no botão "Entrar".</string>
     <string name="descricaoAjudaRegisto">Para registar uma nova conta, o utilizador tem de clicar no texto sublinhado, como é demonstrado na imagem. Ao clicar no texto o utilizador é redirecionado para a página de registo. Quando o utilizador se encontrar na página de registo terá que inserir o seu nome, email, a sua palavra-passe e a confirmação da mesma. A palavra-passe terá de ter no mínimo 6 caracteres. </string>
     <string name="descricaoAjudaNoticia">Nesta página o utilizador irá ter uma caixa de pesquisa para procurar por uma notícia em específico. As notícias são listadas com a sua respetiva imagem, título, fonte e à quantas horas foi publicada. Se o utilizador quiser ler uma notícia basta clicar irá aparecer o website, como é demonstrado na segunda imagem. Ao pressionar a notícia durante algum tempo o link do website é automaticamente copiado para a área de transferência.</string>
+    <string name="criarTarefa">Criar tarefa</string>
+    <string name="editarTarefa">Editar tarefa</string>
+    <string name="realizarTarefa">Realizar tarefa</string>
+    <string name="eliminarTarefa">Eliminar tarefa</string>
+    <string name="descricaoAjudaTarefaPrincipal">Nesta página o utilizador irá criar as suas tarefas a fazer, inserindo a disciplina, a tarefa e a data de entrega. Ao criar as tarefas serão automaticamente listadas, o utilizador conseguirá editar, eliminar e meter se a tarefa já foi realizada. Se precisar na criação, edição ou eliminação da tarefa, deslize para baixo.</string>
 
     <!-- Toasts -->
     <string name="preencherSenha">Preencha a password!</string>
