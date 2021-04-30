@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.example.booklet.activity.ajuda.AjudaLogin;
 import com.example.booklet.activity.ajuda.AjudaNoticias;
 import com.example.booklet.activity.ajuda.AjudaRegisto;
 import com.example.booklet.activity.ajuda.AjudaTarefaPrincipal;
+import com.example.booklet.utility.NetworkChangeListener;
 
 public class AjudaActivity extends AppCompatActivity {
 
@@ -24,6 +27,9 @@ public class AjudaActivity extends AppCompatActivity {
 
     //Ajuda
     Button btnAjudaLogin, btnAjudaRegisto, btnAjudaNoticias, btnAjudaTarefa, btnAjudaHorario, btnAjudaPerfil;
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,5 +124,18 @@ public class AjudaActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return false;
+    }
+
+    @Override
+    public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

@@ -97,5 +97,5 @@
     <string name="editarTarefa">Editar tarea</string>
     <string name="realizarTarefa">Realizar la tarea</string>
     <string name="eliminarTarefa">Eliminar la tarea</string>
-    <string name="descricaoAjudaTarefaPrincipal">En esta página el usuario puede crear sus propias tareas introduciendo el curso, la tarea y la fecha de vencimiento. Al crear las asignaciones se listarán automáticamente, el usuario puede editar, eliminar y comprobar si la asignación ha sido completada. Si necesitas crear, editar o eliminar una tarea, desliza el dedo hacia abajo.</string>
+    <string name="descricaoAjudaTarefaPrincipal">En esta página el usuario puede crear tareas introduciendo el curso, la tarea y la fecha de vencimiento. Al crear las asignaciones se listarán automáticamente, el usuario puede editar, eliminar y comprobar si la asignación ha sido completada. Si necesitas crear, editar o eliminar una tarea, desliza el dedo hacia abajo.</string>
 </resources>

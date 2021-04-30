@@ -107,7 +107,7 @@
     <string name="editarTarefa">Editar tarefa</string>
     <string name="realizarTarefa">Realizar tarefa</string>
     <string name="eliminarTarefa">Eliminar tarefa</string>
-    <string name="descricaoAjudaTarefaPrincipal">Nesta página o utilizador irá criar as suas tarefas a fazer, inserindo a disciplina, a tarefa e a data de entrega. Ao criar as tarefas serão automaticamente listadas, o utilizador conseguirá editar, eliminar e meter se a tarefa já foi realizada. Se precisar na criação, edição ou eliminação da tarefa, deslize para baixo.</string>
+    <string name="descricaoAjudaTarefaPrincipal">Nesta página o utilizador irá criar as suas tarefas, inserindo a disciplina, a tarefa e a data de entrega. Ao criar as tarefas serão automaticamente listadas, o utilizador conseguirá editar, eliminar e meter se a tarefa já foi realizada. Se precisar na criação, edição ou eliminação da tarefa, deslize para baixo.</string>
 
     <!-- Toasts -->
     <string name="preencherSenha">Preencha a password!</string>

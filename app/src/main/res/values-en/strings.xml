@@ -97,5 +97,5 @@
     <string name="editarTarefa">Edit Task</string>
     <string name="realizarTarefa">Perform task</string>
     <string name="eliminarTarefa">Delete task</string>
-    <string name="descricaoAjudaTarefaPrincipal">On this page the user will create their own assignments by entering the course, assignment and due date. When creating the assignments they will be automatically listed, the user will be able to edit, delete and check if the assignment has already been done. If you need to in the creation, editing or deletion of the task, scroll down.</string>
+    <string name="descricaoAjudaTarefaPrincipal">On this page the user can create assignments by entering the course, assignment and due date. When creating the assignments they will be automatically listed, the user will be able to edit, delete and check if the assignment has already been done. If you need to create, edit or delete a task, swipe down.</string>
 </resources>

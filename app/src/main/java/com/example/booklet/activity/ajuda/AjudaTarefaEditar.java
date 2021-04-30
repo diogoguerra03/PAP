@@ -2,11 +2,17 @@ package com.example.booklet.activity.ajuda;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import com.example.booklet.R;
+import com.example.booklet.utility.NetworkChangeListener;
 
 public class AjudaTarefaEditar extends AppCompatActivity {
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +27,18 @@ public class AjudaTarefaEditar extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return false;
+    }
+
+    @Override
+    public void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }
