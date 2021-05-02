@@ -108,9 +108,10 @@
     <string name="realizarTarefa">Realizar tarefa</string>
     <string name="eliminarTarefa">Eliminar tarefa</string>
     <string name="descricaoAjudaTarefaPrincipal">Nesta página o utilizador irá criar as suas tarefas, inserindo a disciplina, a tarefa e a data de entrega. Ao criar as tarefas serão automaticamente listadas, o utilizador conseguirá editar, eliminar e meter se a tarefa já foi realizada. Se precisar na criação, edição ou eliminação da tarefa, deslize para baixo.</string>
-    <string name="descricaoAjudaTarefaCriar">Para criar uma nova tarefa, basta clicar no botão redondo que se encontra no canto inferior direito. De seguida irá aparecer uma <i>POPUP</i>, depois é so inserir todos os campos (disciplina, tarefa e data), a data é preenchida automaticamente com o dia atual. Se quiser alterar a data, pode escrever ou então clique no botão com um <i>icon</i> de calendário e irá aparecer um calendário para selecionar o dia, mês e ano. Por fim basta guarda e a tarefa irá aparecer listada.</string>
-    <string name="descricaoAjudaTarefaEditar">Para editar uma tarefa, basta clicar na tarefa e logo de seguida irá aparecer um <i>POPUP</i> com os dados da tarefa selecionada. Depois é só alterar os campos que deseja e guardar.</string>
-
+    <string name="descricaoAjudaTarefaCriar">Para criar uma nova tarefa, basta clicar no botão redondo que se encontra no canto inferior direito. De seguida irá aparecer uma <i>pop-up</i>, depois é so inserir todos os campos (disciplina, tarefa e data), a data é preenchida automaticamente com o dia atual. Se quiser alterar a data, pode escrever ou então clique no botão com um <i>icon</i> de calendário e irá aparecer um calendário para selecionar o dia, mês e ano. Por fim basta guarda e a tarefa irá aparecer listada.</string>
+    <string name="descricaoAjudaTarefaEditar">Para editar uma tarefa, basta clicar na tarefa e logo de seguida irá aparecer um <i>pop-up</i> com os dados da tarefa selecionada. Depois é só alterar os campos que deseja e guardar.</string>
+    <string name="descricaoAjudaTarefaEliminar">Para eliminar uma tarefa, basta arrastar a tarefa que pretende eliminar para a direita ou para a esquerda, logo de seguida irá aparecer um <i>pop-up</i> de confirmação. Ao confirmar a tarefa será excluída.</string>
+    <string name="descricaoAjudaTarefaRealizar">Para meter uma tarefa já realizada, basta manter pressionado durante algum tempo a tarefa e a <i>checkbox</i> é automaticamente ativada. Se o utilizador quiser alterar a tarefa para não realizada, é só fazer o mesmo.</string>
 
     <!-- Toasts -->
     <string name="preencherSenha">Preencha a password!</string>
