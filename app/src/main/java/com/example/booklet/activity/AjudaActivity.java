@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.booklet.R;
+import com.example.booklet.activity.ajuda.AjudaHorarioPrincipal;
 import com.example.booklet.activity.ajuda.AjudaLogin;
 import com.example.booklet.activity.ajuda.AjudaNoticias;
 import com.example.booklet.activity.ajuda.AjudaRegisto;
@@ -73,6 +74,13 @@ public class AjudaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AjudaActivity.this, AjudaTarefaPrincipal.class));
+            }
+        });
+
+        btnAjudaHorario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaHorarioPrincipal.class));
             }
         });
 
