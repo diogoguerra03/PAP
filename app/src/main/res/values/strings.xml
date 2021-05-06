@@ -113,10 +113,11 @@
     <string name="descricaoAjudaTarefaEditar">Para editar uma tarefa, basta clicar na tarefa e logo de seguida irá aparecer um <i>pop-up</i> com os dados da tarefa selecionada. Depois é só alterar os campos que deseja e guardar.</string>
     <string name="descricaoAjudaTarefaEliminar">Para eliminar uma tarefa, basta arrastar a tarefa que pretende eliminar para a direita ou para a esquerda, logo de seguida irá aparecer um <i>pop-up</i> de confirmação. Ao confirmar a tarefa será excluída.</string>
     <string name="descricaoAjudaTarefaRealizar">Para meter uma tarefa já realizada, basta manter pressionado durante algum tempo a tarefa e a <i>checkbox</i> é automaticamente ativada. Se o utilizador quiser alterar a tarefa para não realizada, é só fazer o mesmo.</string>
-    <string name="descricaoAjudaHorarioPrincipal">Nesta página o utilizador terá que selecionar o dia da semana, depois irá ser redirecionado para a página desse dia e só depois conseguirá adicionar uma disciplina, sala e horas (de início e fim). O utilizador poderá atualizar e eliminar as aulas.</string>
+    <string name="descricaoAjudaHorarioPrincipal">Nesta página o utilizador terá que selecionar o dia da semana, depois irá ser redirecionado para a página desse dia e só depois conseguirá adicionar uma disciplina, sala e horas (de início e fim). O utilizador poderá criar, atualizar e eliminar as aulas.</string>
     <string name="criarAula">Criar nova aula</string>
     <string name="EditarAula">Editar aula</string>
-
+    <string name="descricaoAjudaHorarioCriar">Para criar uma nova aula, basta clicar no botão redondo que se encontra no canto inferior direito. De seguida irá aparecer uma <i>pop-up</i>, depois é so inserir todos os campos (disciplina, sala e horas). De seguida é só guardar e a aula será listada.</string>
+    <string name="descricaoAjudaHorarioEditar">Para editar a aula, é só clicar na aula que se pretende editar. De seguida irá aparecer uma <i>pop-up</i> com os dados da aula. Depois é só alterar os dados que se pretende alterar e guardar.</string>
 
     <!-- Toasts -->
     <string name="preencherSenha">Preencha a password!</string>

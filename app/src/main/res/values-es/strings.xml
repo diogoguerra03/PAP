@@ -102,4 +102,10 @@
     <string name="descricaoAjudaTarefaEditar">Para editar una tarea, basta con hacer clic en ella y entonces aparecerá una ventana emergente con los datos de la tarea seleccionada. A continuación, cambie los campos que desee y guarde.</string>
     <string name="descricaoAjudaTarefaEliminar">Para eliminar una tarea, simplemente arrastre la tarea que desea eliminar hacia la derecha o hacia la izquierda, entonces aparecerá una ventana emergente de confirmación. Al confirmar, la tarea será eliminada.</string>
     <string name="descricaoAjudaTarefaRealizar">Para poner una tarea ya hecha, basta con mantener pulsada durante un rato la tarea y la casilla se activará automáticamente. Si el usuario quiere cambiar la tarea a no realizada, simplemente haga lo mismo.</string>
+    <string name="selecionarDia">Seleccione el día de la semana</string>
+    <string name="descricaoAjudaHorarioPrincipal">En esta página el usuario tendrá que seleccionar el día de la semana, luego será redirigido a la página de ese día y sólo entonces podrá añadir un tema, sala y horas (inicio y fin). El usuario puede crear, actualizar y eliminar clases.</string>
+    <string name="criarAula">Crear una nueva lección</string>
+    <string name="EditarAula">Editar clase</string>
+    <string name="descricaoAjudaHorarioCriar">Para crear una nueva lección, basta con hacer clic en el botón redondo de la esquina inferior derecha. A continuación, aparecerá una ventana emergente, tras la cual podrá introducir todos los campos (asunto, sala y hora). Luego, sólo hay que guardar y la lección aparecerá en la lista.</string>
+    <string name="descricaoAjudaHorarioEditar">Para editar la lección, sólo tiene que hacer clic en la lección que desea editar. Entonces aparecerá una ventana emergente con los datos de la lección. A continuación, sólo tienes que cambiar los datos que quieras modificar y guardar.</string>
 </resources>

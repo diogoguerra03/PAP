@@ -12,8 +12,10 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ajuda.AjudaHorarioEditar"></activity>
-        <activity android:name=".activity.ajuda.AjudaHorarioCriar" />
+        <activity android:name=".activity.ajuda.AjudaHorarioEditar"
+            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal"></activity>
+        <activity android:name=".activity.ajuda.AjudaHorarioCriar"
+            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal"/>
         <activity
             android:name=".activity.ajuda.AjudaHorarioPrincipal"
             android:parentActivityName=".activity.AjudaActivity" />

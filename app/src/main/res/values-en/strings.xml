@@ -102,4 +102,10 @@
     <string name="descricaoAjudaTarefaEditar">To edit a task, simply click on the task and a POPUP will appear with the selected task data. Then just change the fields you want and save.</string>
     <string name="descricaoAjudaTarefaEliminar">To delete a task, simply drag the task you want to delete to the right or left, then a confirmation pop-up will appear. When you confirm the task will be deleted.</string>
     <string name="descricaoAjudaTarefaRealizar">To put a task already done, just hold down the task for a while and the checkbox is automatically activated. If the user wants to change the task to not done, just do the same.</string>
+    <string name="selecionarDia">Selects the day of the week</string>
+    <string name="descricaoAjudaHorarioPrincipal">On this page the user will have to select the day of the week, then he will be redirected to that day\'s page and only then he will be able to add a subject, room and times (start and end). The user can create, update and delete classes.</string>
+    <string name="criarAula">Create new lesson</string>
+    <string name="EditarAula">Edit Class</string>
+    <string name="descricaoAjudaHorarioCriar">To create a new lesson, simply click on the round button in the lower right corner. Then a pop-up window will appear, after which you can enter all the fields (subject, room and time). Then just save and the lesson will be listed.</string>
+    <string name="descricaoAjudaHorarioEditar">To edit the lesson, just click on the lesson you want to edit. Then a pop-up window will appear with the data of the lesson. Then just change the data you want to change and save.</string>
 </resources>

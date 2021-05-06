@@ -102,4 +102,10 @@
     <string name="descricaoAjudaTarefaEditar">Pour modifier une tâche, il suffit de cliquer sur la tâche et un POPUP apparaîtra avec les données de la tâche sélectionnée. Il suffit ensuite de modifier les champs que vous souhaitez et d\'enregistrer.</string>
     <string name="descricaoAjudaTarefaEliminar">Pour supprimer une tâche, il suffit de faire glisser la tâche que vous souhaitez supprimer vers la droite ou la gauche, puis une fenêtre de confirmation apparaît. Lorsque vous confirmez, la tâche est supprimée.</string>
     <string name="descricaoAjudaTarefaRealizar">Pour mettre une tâche déjà effectuée, il suffit de maintenir le doigt appuyé pendant un moment sur la tâche et la case à cocher sera automatiquement activée. Si l\'utilisateur veut changer la tâche en non effectuée, il suffit de faire de même.</string>
+    <string name="selecionarDia">Sélectionnez le jour de la semaine</string>
+    <string name="descricaoAjudaHorarioPrincipal">Dans cette page, l\'utilisateur devra sélectionner le jour de la semaine, puis il sera redirigé vers la page de ce jour et seulement alors il pourra ajouter un sujet, une salle et des heures (début et fin). L\'utilisateur peut créer, mettre à jour et supprimer des classes.</string>
+    <string name="criarAula">Créer une nouvelle leçon</string>
+    <string name="EditarAula">Classe d\'édition</string>
+    <string name="descricaoAjudaHorarioCriar">Pour créer une nouvelle leçon, il suffit de cliquer sur le bouton rond dans le coin inférieur droit. Une fenêtre pop-up apparaît alors, après laquelle vous pouvez saisir tous les champs (sujet, salle et heure). Ensuite, il suffit de sauvegarder et la leçon sera répertoriée.</string>
+    <string name="descricaoAjudaHorarioEditar">Pour modifier une leçon, il suffit de cliquer sur la leçon que vous souhaitez modifier. Une fenêtre pop-up apparaît alors avec les données de la leçon. Il suffit ensuite de modifier les données que vous voulez changer et de les enregistrer.</string>
 </resources>

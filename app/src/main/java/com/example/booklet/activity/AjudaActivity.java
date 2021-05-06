@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.booklet.R;
+import com.example.booklet.activity.ajuda.AjudaHorarioEditar;
 import com.example.booklet.activity.ajuda.AjudaHorarioPrincipal;
 import com.example.booklet.activity.ajuda.AjudaLogin;
 import com.example.booklet.activity.ajuda.AjudaNoticias;

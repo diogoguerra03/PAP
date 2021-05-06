@@ -28,10 +28,20 @@ public class AjudaHorarioPrincipal extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_seta_sair_branca_24);
 
+        btnCriarAula = findViewById(R.id.btnAjudaCriarAula);
+        btnEditarAula = findViewById(R.id.btnAjudaEditarAula);
+
         btnCriarAula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AjudaHorarioPrincipal.this, AjudaHorarioCriar.class));
+            }
+        });
+        btnEditarAula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaHorarioPrincipal.this, AjudaHorarioEditar.class));
+
             }
         });
     }
