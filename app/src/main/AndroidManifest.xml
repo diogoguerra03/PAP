@@ -12,10 +12,18 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ajuda.AjudaHorarioEditar"
-            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal"></activity>
-        <activity android:name=".activity.ajuda.AjudaHorarioCriar"
-            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaPerfilSessao"
+            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaPerfilPassword"
+            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal"/>
+        <activity android:name=".activity.ajuda.AjudaPerfilPrincipal"
+            android:parentActivityName=".activity.AjudaActivity"/>
+        <activity
+            android:name=".activity.ajuda.AjudaHorarioEditar"
+            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal" />
+        <activity
+            android:name=".activity.ajuda.AjudaHorarioCriar"
+            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal" />
         <activity
             android:name=".activity.ajuda.AjudaHorarioPrincipal"
             android:parentActivityName=".activity.AjudaActivity" />

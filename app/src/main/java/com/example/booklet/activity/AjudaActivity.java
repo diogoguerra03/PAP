@@ -18,6 +18,7 @@ import com.example.booklet.activity.ajuda.AjudaHorarioEditar;
 import com.example.booklet.activity.ajuda.AjudaHorarioPrincipal;
 import com.example.booklet.activity.ajuda.AjudaLogin;
 import com.example.booklet.activity.ajuda.AjudaNoticias;
+import com.example.booklet.activity.ajuda.AjudaPerfilPrincipal;
 import com.example.booklet.activity.ajuda.AjudaRegisto;
 import com.example.booklet.activity.ajuda.AjudaTarefaPrincipal;
 import com.example.booklet.utility.NetworkChangeListener;
@@ -25,7 +26,7 @@ import com.example.booklet.utility.NetworkChangeListener;
 public class AjudaActivity extends AppCompatActivity {
 
     //Contactos
-    Button btnFb,btnInsta, btnGmail;
+    Button btnFb, btnInsta, btnGmail;
 
     //Ajuda
     Button btnAjudaLogin, btnAjudaRegisto, btnAjudaNoticias, btnAjudaTarefa, btnAjudaHorario, btnAjudaPerfil;
@@ -85,6 +86,13 @@ public class AjudaActivity extends AppCompatActivity {
             }
         });
 
+        btnAjudaPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaActivity.this, AjudaPerfilPrincipal.class));
+            }
+        });
+
         //contactos
         btnFb = findViewById(R.id.btnFacebook);
         btnInsta = findViewById(R.id.btnInsta);
@@ -105,7 +113,7 @@ public class AjudaActivity extends AppCompatActivity {
                 instagram.setPackage("com.instagram.android");
                 try {
                     startActivity(instagram);
-                }catch (ActivityNotFoundException e){
+                } catch (ActivityNotFoundException e) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/diogoguerra_22/")));
                 }
             }
@@ -119,15 +127,15 @@ public class AjudaActivity extends AppCompatActivity {
         });
     }
 
-   private void getOpenFacebookIntent(String id){
+    private void getOpenFacebookIntent(String id) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + id));
             startActivity(intent);
-        }catch (ActivityNotFoundException e){
+        } catch (ActivityNotFoundException e) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + id));
             startActivity(intent);
         }
-   }
+    }
 
     @Override
     public boolean onSupportNavigateUp() {

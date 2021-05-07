@@ -108,4 +108,7 @@
     <string name="EditarAula">Edit Class</string>
     <string name="descricaoAjudaHorarioCriar">To create a new lesson, simply click on the round button in the lower right corner. Then a pop-up window will appear, after which you can enter all the fields (subject, room and time). Then just save and the lesson will be listed.</string>
     <string name="descricaoAjudaHorarioEditar">To edit the lesson, just click on the lesson you want to edit. Then a pop-up window will appear with the data of the lesson. Then just change the data you want to change and save.</string>
+    <string name="descricaoAjudaPerfilPrincipal">On this page the user will be able to see his or her username and email address. They will also be able to change their password and log out.</string>
+    <string name="descricaoAjudaPerfilPass">To change the <i>password</i> just click on the change <i>password</i> button, then a <i>pop-up</i> will appear. As is shown in the first image you need to enter the current <i>password</i>, the new one and repeat. When you change it, a success message will appear and a <i>pop-up</i> with a message saying that the session will be terminated.</string>
+    <string name="descricaoAjudaPerfilSessão">To logout simply click the logout button, then a confirmation <i>pop-up</i> will appear and upon confirmation the user logs out and is redirected to the login page.</string>
 </resources>
