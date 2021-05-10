@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -12,12 +13,16 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ajuda.AjudaPerfilSessao"
-            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal"/>
-        <activity android:name=".activity.ajuda.AjudaPerfilPassword"
-            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal"/>
-        <activity android:name=".activity.ajuda.AjudaPerfilPrincipal"
-            android:parentActivityName=".activity.AjudaActivity"/>
+        <activity android:name=".notificacao.NotificationMessage"></activity>
+        <activity
+            android:name=".activity.ajuda.AjudaPerfilSessao"
+            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal" />
+        <activity
+            android:name=".activity.ajuda.AjudaPerfilPassword"
+            android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal" />
+        <activity
+            android:name=".activity.ajuda.AjudaPerfilPrincipal"
+            android:parentActivityName=".activity.AjudaActivity" />
         <activity
             android:name=".activity.ajuda.AjudaHorarioEditar"
             android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal" />
@@ -84,6 +89,17 @@
         <activity
             android:name=".activity.RegistoAlunoActivity"
             android:parentActivityName=".activity.MainActivity" />
+
+        <receiver
+            android:name=".notificacao.BootUpReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".notificacao.AlarmBroadCast" />
     </application>
 
 </manifest>

@@ -157,6 +157,21 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnLembrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:src="@drawable/ic_notificacao_24" />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
     <LinearLayout

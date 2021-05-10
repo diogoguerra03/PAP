@@ -1,8 +1,13 @@
 package com.example.booklet.fragment;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -22,9 +27,11 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.booklet.Database.DatabaseClass;
+import com.example.booklet.Database.EntityClass;
 import com.example.booklet.R;
 import com.example.booklet.adapter.AdapterTarefa;
 import com.example.booklet.config.ConfiguracaoFirebase;
@@ -32,6 +39,7 @@ import com.example.booklet.helper.Base64Custom;
 import com.example.booklet.helper.DateCustom;
 import com.example.booklet.helper.RecyclerItemClickListener;
 import com.example.booklet.model.Tarefa;
+import com.example.booklet.notificacao.AlarmBroadCast;
 import com.example.booklet.utility.NetworkChangeListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,9 +48,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -53,6 +64,8 @@ public class TodoFragment extends Fragment {
     public TodoFragment() {
         // Required empty public constructor
     }
+
+    DatabaseClass databaseClass;
 
     private FloatingActionButton floatingActionButton;
     private RecyclerView recyclerView;
@@ -71,6 +84,10 @@ public class TodoFragment extends Fragment {
     private String dataPreenchida;
 
     private CheckBox CheckBoxRealizada;
+
+    //PopUp Notificacao
+    private ImageButton btnLembrete;
+    String timeTonotify;
 
     //PopUp calendario
     private ImageButton btnCalendario;
@@ -248,6 +265,7 @@ public class TodoFragment extends Fragment {
         campodata = myView.findViewById(R.id.editData);
         Button botaoguardar = myView.findViewById(R.id.btnGuardar);
         Button botaocancelar = myView.findViewById(R.id.btnCancelarTarefa);
+        btnLembrete = myView.findViewById(R.id.btnLembrete);
         btnCalendario = myView.findViewById(R.id.btnCalendario);
 
         campodata.setText(DateCustom.dataAtual());
@@ -267,6 +285,23 @@ public class TodoFragment extends Fragment {
             }
         });
 
+        btnLembrete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeTonotify =hourOfDay + ":" + minute;
+                        Toast.makeText(getActivity(), "Hora do lembrete definida", Toast.LENGTH_SHORT).show();
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
         botaoguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,13 +315,25 @@ public class TodoFragment extends Fragment {
                         if (textoData.length() > 7) {
 
                             tarefa = new Tarefa();
-                            String data = campodata.getText().toString();
+                            String date = campodata.getText().toString();
+                            String value = campotarefa.getText().toString();
+                            String value1 = campodescricao.getText().toString();
+                            String time = timeTonotify;
 
                             tarefa.setTarefa(campotarefa.getText().toString());
                             tarefa.setDescricao(campodescricao.getText().toString());
-                            tarefa.setData(data);
+                            tarefa.setData(date);
                             tarefa.setRealizada(false);
-                            tarefa.salvar(data);
+                            tarefa.salvar(date);
+
+                            /*
+                            EntityClass entityClass = new EntityClass();
+                            entityClass.setEventdate(date);
+                            entityClass.setEventname(value);
+                            entityClass.setEventtime(time);
+                            databaseClass.EventDao().insertAll(entityClass);*/
+
+                            setAlarm(value, value1, date, time);
 
                             popAdd.dismiss();
 
@@ -308,6 +355,28 @@ public class TodoFragment extends Fragment {
 
             }
         });
+    }
+
+    private void setAlarm(String text, String text1, String date, String time) {
+        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(getActivity(), AlarmBroadCast.class);
+        intent.putExtra("event", text );
+        //intent.putExtra("time", date);
+        //intent.putExtra("date", time);
+        intent.putExtra("time", text1);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        String dateandtime = date + " " + timeTonotify;
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        try {
+            Date date1 = formatter.parse(dateandtime);
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void DateDialog() {
