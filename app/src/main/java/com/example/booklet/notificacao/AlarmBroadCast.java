@@ -25,7 +25,6 @@ public class AlarmBroadCast extends BroadcastReceiver {
         String date = bundle.getString("time");
 
         //Click on Notification
-
         Intent intent1 = new Intent(context, PrincipalActivityAluno.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent1.putExtra("message", text);

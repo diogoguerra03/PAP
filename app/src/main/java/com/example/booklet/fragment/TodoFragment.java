@@ -88,6 +88,7 @@ public class TodoFragment extends Fragment {
     //PopUp Notificacao
     private ImageButton btnLembrete;
     String timeTonotify;
+    String dateTonotify;
 
     //PopUp calendario
     private ImageButton btnCalendario;
@@ -361,10 +362,10 @@ public class TodoFragment extends Fragment {
         AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(getActivity(), AlarmBroadCast.class);
-        intent.putExtra("event", text );
+        intent.putExtra("event", "Disciplina: " + text);
         //intent.putExtra("time", date);
         //intent.putExtra("date", time);
-        intent.putExtra("time", text1);
+        intent.putExtra("time", "Tarefa: " + text1);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
         String dateandtime = date + " " + timeTonotify;
