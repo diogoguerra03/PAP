@@ -65,8 +65,6 @@ public class TodoFragment extends Fragment {
         // Required empty public constructor
     }
 
-    DatabaseClass databaseClass;
-
     private FloatingActionButton floatingActionButton;
     private RecyclerView recyclerView;
 
@@ -289,17 +287,8 @@ public class TodoFragment extends Fragment {
         btnLembrete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar= Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int minute = calendar.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        timeTonotify =hourOfDay + ":" + minute;
-                        Toast.makeText(getActivity(), "Hora do lembrete definida", Toast.LENGTH_SHORT).show();
-                    }
-                },hour,minute,true);
-                timePickerDialog.show();
+                selectTime();
+                selectDate();
             }
         });
 
@@ -320,6 +309,7 @@ public class TodoFragment extends Fragment {
                             String value = campotarefa.getText().toString();
                             String value1 = campodescricao.getText().toString();
                             String time = timeTonotify;
+                            String dateNotification = dateTonotify;
 
                             tarefa.setTarefa(campotarefa.getText().toString());
                             tarefa.setDescricao(campodescricao.getText().toString());
@@ -334,7 +324,7 @@ public class TodoFragment extends Fragment {
                             entityClass.setEventtime(time);
                             databaseClass.EventDao().insertAll(entityClass);*/
 
-                            setAlarm(value, value1, date, time);
+                            setAlarm(value, value1, dateNotification, time);
 
                             popAdd.dismiss();
 
@@ -356,6 +346,35 @@ public class TodoFragment extends Fragment {
 
             }
         });
+    }
+
+    private void selectTime() {
+        Calendar calendar= Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                timeTonotify =hourOfDay + ":" + minute;
+                Toast.makeText(getActivity(), "Hora do lembrete definida", Toast.LENGTH_SHORT).show();
+            }
+        },hour,minute,true);
+        timePickerDialog.show();
+
+    }
+
+    private void selectDate() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateTonotify = day + "/" + (month + 1) + "/" + year;
+            }
+        }, year, month, day);
+        datePickerDialog.show();
     }
 
     private void setAlarm(String text, String text1, String date, String time) {
