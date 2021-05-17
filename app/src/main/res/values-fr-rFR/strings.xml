@@ -113,4 +113,5 @@
     <string name="descricaoAjudaPerfilSessão">Pour se déconnecter, il suffit de cliquer sur le bouton de déconnexion. Une fenêtre pop-up de confirmation apparaît alors et, après confirmation, l\'utilisateur est déconnecté et redirigé vers la page de connexion.</string>
     <string name="horaInicial">Heure de début</string>
     <string name="horaFinal">Dernière heure</string>
+    <string name="lembreteDefinido">Le rappel a été fixé</string>
 </resources>

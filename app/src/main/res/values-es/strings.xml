@@ -113,4 +113,5 @@
     <string name="descricaoAjudaPerfilSessão">Para cerrar la sesión, simplemente haga clic en el botón de cierre de sesión, entonces aparecerá una ventana emergente de confirmación y al confirmar el usuario se cierra la sesión y se le redirige a la página de inicio de sesión.</string>
     <string name="horaInicial">Hora de inicio</string>
     <string name="horaFinal">Hora final</string>
+    <string name="lembreteDefinido">El recordatorio se estableció</string>
 </resources>

@@ -147,4 +147,6 @@
     <string name="linkCopiado">O link foi copiado!</string>
     <string name="preencherData">Preencha a data corretamente</string>
     <string name="preencherDescricao">Preencha a descrição corretamente</string>
+    <string name="lembreteDefinido">Lembrete definido</string>
+
 </resources>

@@ -359,7 +359,7 @@ public class TodoFragment extends Fragment {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 timeTonotify =hourOfDay + ":" + minute;
-                Toast.makeText(getActivity(), "Hora do lembrete definida", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.lembreteDefinido, Toast.LENGTH_SHORT).show();
             }
         },hour,minute,true);
         timePickerDialog.show();
