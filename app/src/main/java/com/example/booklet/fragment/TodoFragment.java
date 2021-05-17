@@ -85,8 +85,11 @@ public class TodoFragment extends Fragment {
 
     //PopUp Notificacao
     private ImageButton btnLembrete;
+    private ImageButton btnLembreteAtualizado;
     String timeTonotify;
     String dateTonotify;
+    String timeTonotifyAtualizado;
+    String dateTonotifyAtualizado;
 
     //PopUp calendario
     private ImageButton btnCalendario;
@@ -477,6 +480,15 @@ public class TodoFragment extends Fragment {
 
         Button btnCancelar = view.findViewById(R.id.btnCancelarUpdate);
         Button btnAtualizar = view.findViewById(R.id.btnAtualizar);
+        btnLembreteAtualizado = view.findViewById(R.id.btnLembreteUpdate);
+
+        btnLembreteAtualizado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectTime2();
+                selectDate2();
+            }
+        });
 
         BtnCalendarioUpDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -520,6 +532,14 @@ public class TodoFragment extends Fragment {
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashDescricao);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashData);
                             tarefaRef.child(tarefa.getKey()).updateChildren(hashRealizada);
+
+                            String time = timeTonotifyAtualizado;
+                            String dateNotification = dateTonotifyAtualizado;
+                            String value = tarefaPreenchida;
+                            String value1 = descricaoPreenchida;
+
+                            setAlarm2(value, value1, dateNotification, time);
+
                             popUpdate.dismiss();
                         } else {
                             Toast.makeText(getActivity(), R.string.preencherData, Toast.LENGTH_LONG).show();
@@ -544,6 +564,57 @@ public class TodoFragment extends Fragment {
         });
 
         popUpdate.show();
+    }
+
+    private void selectTime2() {
+        Calendar calendar= Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                timeTonotifyAtualizado =hourOfDay + ":" + minute;
+                Toast.makeText(getActivity(), "Hora do lembrete definida", Toast.LENGTH_SHORT).show();
+            }
+        },hour,minute,true);
+        timePickerDialog.show();
+
+    }
+
+    private void selectDate2() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateTonotifyAtualizado = day + "/" + (month + 1) + "/" + year;
+            }
+        }, year, month, day);
+        datePickerDialog.show();
+    }
+
+    private void setAlarm2(String text, String text1, String date, String time) {
+        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(getActivity(), AlarmBroadCast.class);
+        intent.putExtra("event", "Disciplina: " + text);
+        //intent.putExtra("time", date);
+        //intent.putExtra("date", time);
+        intent.putExtra("time", "Tarefa: " + text1);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        String dateandtime = date + " " + timeTonotifyAtualizado;
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        try {
+            Date date1 = formatter.parse(dateandtime);
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void DateDialogUpdate() {
