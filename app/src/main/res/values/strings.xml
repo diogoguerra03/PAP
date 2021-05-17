@@ -62,6 +62,8 @@
     <string name="horas">Horas:</string>
     <string name="atualizarHorario">Atualizar horário</string>
     <string name="selecionarDia">Seleciona o dia da semana</string>
+    <string name="horaInicial">Hora Inicial</string>
+    <string name="horaFinal">Hora Final</string>
 
     <!-- Perfil -->
     <string name="perfil">Perfil</string>

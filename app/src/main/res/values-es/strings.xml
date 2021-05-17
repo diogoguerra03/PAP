@@ -111,4 +111,6 @@
     <string name="descricaoAjudaPerfilPrincipal">En esta página el usuario podrá ver su nombre de usuario y su dirección de correo electrónico. También podrán cambiar su contraseña y cerrar la sesión.</string>
     <string name="descricaoAjudaPerfilPass">Para cambiar la <i>contraseña</i> sólo hay que pulsar el botón de cambiar <i>contraseña</i>, entonces aparecerá una <i>pantalla</i>. Como se muestra en la primera imagen hay que introducir la <i>contraseña</i> actual, la nueva y repetir. Al cambiar la nueva contraseña aparecerá un mensaje de éxito y una ventana emergente con un mensaje que dice que la sesión se terminará.</string>
     <string name="descricaoAjudaPerfilSessão">Para cerrar la sesión, simplemente haga clic en el botón de cierre de sesión, entonces aparecerá una ventana emergente de confirmación y al confirmar el usuario se cierra la sesión y se le redirige a la página de inicio de sesión.</string>
+    <string name="horaInicial">Hora de inicio</string>
+    <string name="horaFinal">Hora final</string>
 </resources>

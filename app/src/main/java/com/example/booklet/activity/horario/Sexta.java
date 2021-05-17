@@ -1,6 +1,7 @@
 package com.example.booklet.activity.horario;
 
 import android.app.AlertDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,6 +57,9 @@ public class Sexta extends AppCompatActivity {
     private String salaPreenchida;
     private String HrInicialPreenchida;
     private String HrFinalPreenchida;
+
+    String timeToHoraInicial;
+    String timeToHoraFinal;
 
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
@@ -192,12 +198,46 @@ public class Sexta extends AppCompatActivity {
 
         final EditText campodisciplina = myView.findViewById(R.id.EdtDisciplina);
         final EditText camposala = myView.findViewById(R.id.EdtSala);
-        final EditText campoHrInicial = myView.findViewById(R.id.EdthoraInicial);
-        final EditText campoHrFinal = myView.findViewById(R.id.EdthoraFinal);
+        final Button campoHrInicial = myView.findViewById(R.id.EdthoraInicial);
+        final Button campoHrFinal = myView.findViewById(R.id.EdthoraFinal);
         Button btnCancelarHorario = myView.findViewById(R.id.btnCancelarHorario);
         Button btnGuardarDisciplina = myView.findViewById(R.id.btnGuardarDisciplina);
 
         dialog.show();
+
+        campoHrInicial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Sexta.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraInicial =hourOfDay + ":" + minute;
+                        campoHrInicial.setText(timeToHoraInicial);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
+        campoHrFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Sexta.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraFinal =hourOfDay + ":" + minute;
+                        campoHrFinal.setText(timeToHoraFinal);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
 
         btnCancelarHorario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,8 +258,8 @@ public class Sexta extends AppCompatActivity {
 
                 if (!textoDisciplina.isEmpty()){
                     if (!textoSala.isEmpty()){
-                        if (!textoHrInicial.isEmpty()){
-                            if (!textoHrFinal.isEmpty()){
+                        if (textoHrInicial.length() <= 5){
+                            if (textoHrFinal.length() <= 5){
 
                                 horario = new Horario();
 

@@ -1,6 +1,7 @@
 package com.example.booklet.activity.horario;
 
 import android.app.AlertDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,6 +57,11 @@ public class Segunda extends AppCompatActivity {
     private String salaPreenchida;
     private String HrInicialPreenchida;
     private String HrFinalPreenchida;
+
+    String timeToHoraInicial;
+    String timeToHoraFinal;
+    String timeToHoraInicialAtualizada;
+    String timeToHoraFinalAtualizada;
 
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
@@ -104,8 +112,6 @@ public class Segunda extends AppCompatActivity {
             }
         }));
 
-
-
         floatingActionButton = findViewById(R.id.fabSegunda);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,12 +133,46 @@ public class Segunda extends AppCompatActivity {
 
         final EditText campodisciplina = myView.findViewById(R.id.EdtDisciplina);
         final EditText camposala = myView.findViewById(R.id.EdtSala);
-        final EditText campoHrInicial = myView.findViewById(R.id.EdthoraInicial);
-        final EditText campoHrFinal = myView.findViewById(R.id.EdthoraFinal);
+        final Button campoHrInicial = myView.findViewById(R.id.EdthoraInicial);
+        final Button campoHrFinal = myView.findViewById(R.id.EdthoraFinal);
         Button btnCancelarHorario = myView.findViewById(R.id.btnCancelarHorario);
         Button btnGuardarDisciplina = myView.findViewById(R.id.btnGuardarDisciplina);
 
         dialog.show();
+
+        campoHrInicial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Segunda.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraInicial =hourOfDay + ":" + minute;
+                        campoHrInicial.setText(timeToHoraInicial);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
+        campoHrFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Segunda.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraFinal =hourOfDay + ":" + minute;
+                        campoHrFinal.setText(timeToHoraFinal);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
 
         btnCancelarHorario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,14 +187,14 @@ public class Segunda extends AppCompatActivity {
 
                 String textoDisciplina = campodisciplina.getText().toString();
                 String textoSala = camposala.getText().toString();
-                String textoHrInicial= campoHrInicial.getText().toString();
+                String textoHrInicial= campoHrInicial.getText().toString().trim();
                 String textoHrFinal = campoHrFinal.getText().toString();
 
 
                 if (!textoDisciplina.isEmpty()){
                     if (!textoSala.isEmpty()){
-                        if (!textoHrInicial.isEmpty()){
-                            if (!textoHrFinal.isEmpty()){
+                        if (textoHrInicial.length() <= 5){
+                            if (textoHrFinal.length() <= 5){
 
                                 horario = new Horario();
 
@@ -191,6 +231,7 @@ public class Segunda extends AppCompatActivity {
         });
 
     }
+
 
     public void recuperarHorario(){
         String emailUtilizador = auth.getCurrentUser().getEmail();
@@ -230,8 +271,8 @@ public class Segunda extends AppCompatActivity {
 
         final EditText campoDisciplinaAtualizada = view.findViewById(R.id.EdtDisciplinaAtualizada);
         final EditText campoSalaAtualizada = view.findViewById(R.id.EdtSalaAtualizada);
-        final EditText campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
-        final EditText campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
+        final Button campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
+        final Button campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
 
         campoDisciplinaAtualizada.setText(disciplinaPreenchida);
         campoDisciplinaAtualizada.setSelection(disciplinaPreenchida.length());
@@ -240,13 +281,47 @@ public class Segunda extends AppCompatActivity {
         campoSalaAtualizada.setSelection(salaPreenchida.length());
 
         campoHrInicialAtualizada.setText(HrInicialPreenchida);
-        campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
+        //campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
 
         campoHrFinalAtualizada.setText(HrFinalPreenchida);
-        campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
+        //campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
 
         Button btnCancelar = view.findViewById(R.id.btnCancelarUpdate);
         Button btnAtualizar = view.findViewById(R.id.btnAtualizar);
+
+        campoHrInicialAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Segunda.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraInicialAtualizada =hourOfDay + ":" + minute;
+                        campoHrInicialAtualizada.setText(timeToHoraInicialAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
+        campoHrFinalAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Segunda.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraFinalAtualizada =hourOfDay + ":" + minute;
+                        campoHrFinalAtualizada.setText(timeToHoraFinalAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
 
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -263,7 +338,9 @@ public class Segunda extends AppCompatActivity {
 
                 if (!disciplinaP.isEmpty()){
                     if (!salaP.isEmpty()){
-                        if (!HrInicialP.isEmpty() && !HrFinalP.isEmpty()){
+                        if (HrInicialP.equals("Hora Inicial") && HrFinalP.equals("Hora Final")){
+                            Toast.makeText(Segunda.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
+                        }else{
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -287,8 +364,6 @@ public class Segunda extends AppCompatActivity {
                             horarioSegundaRef.child(horario.getId()).updateChildren(hashHrInicial);
                             horarioSegundaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
-                        }else{
-                            Toast.makeText(Segunda.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
                         }
                     }else{
                         Toast.makeText(Segunda.this, R.string.digitarSala, Toast.LENGTH_LONG).show();

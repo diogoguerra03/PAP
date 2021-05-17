@@ -111,4 +111,6 @@
     <string name="descricaoAjudaPerfilPrincipal">On this page the user will be able to see his or her username and email address. They will also be able to change their password and log out.</string>
     <string name="descricaoAjudaPerfilPass">To change the <i>password</i> just click on the change <i>password</i> button, then a <i>pop-up</i> will appear. As is shown in the first image you need to enter the current <i>password</i>, the new one and repeat. When you change it, a success message will appear and a <i>pop-up</i> with a message saying that the session will be terminated.</string>
     <string name="descricaoAjudaPerfilSessão">To logout simply click the logout button, then a confirmation <i>pop-up</i> will appear and upon confirmation the user logs out and is redirected to the login page.</string>
+    <string name="horaInicial">Start time</string>
+    <string name="horaFinal">End Time</string>
 </resources>

@@ -124,8 +124,20 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:layout_gravity="center">
 
+            <Button
+                android:id="@+id/EdthoraInicialAtualizada"
+                android:background="@color/azulFB"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/horaInicial"
+                android:layout_marginRight="5dp"
+                android:textAllCaps="false"/>
+
+            <!--
             <EditText
                 android:id="@+id/EdthoraInicialAtualizada"
                 android:layout_width="match_parent"
@@ -140,13 +152,26 @@
                 android:inputType="time"
                 android:maxLength="5"
                 android:textStyle="bold" />
+                -->
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:layout_gravity="center">
 
+            <Button
+                android:id="@+id/EdthoraFinalAtualizada"
+                android:background="@color/azulFB"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/horaFinal"
+                android:textAllCaps="false"
+                android:layout_marginLeft="5dp"/>
+
+            <!--
             <EditText
                 android:id="@+id/EdthoraFinalAtualizada"
                 android:layout_width="match_parent"
@@ -161,6 +186,7 @@
                 android:inputType="time"
                 android:maxLength="5"
                 android:textStyle="bold" />
+                -->
         </RelativeLayout>
 
     </LinearLayout>
