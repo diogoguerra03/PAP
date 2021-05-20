@@ -106,7 +106,7 @@
     <string name="descricaoAjudaHorarioPrincipal">Dans cette page, l\'utilisateur devra sélectionner le jour de la semaine, puis il sera redirigé vers la page de ce jour et seulement alors il pourra ajouter un sujet, une salle et des heures (début et fin). L\'utilisateur peut créer, mettre à jour et supprimer des classes.</string>
     <string name="criarAula">Créer une nouvelle leçon</string>
     <string name="EditarAula">Classe d\'édition</string>
-    <string name="descricaoAjudaHorarioCriar">Pour créer une nouvelle leçon, il suffit de cliquer sur le bouton rond dans le coin inférieur droit. Une fenêtre pop-up apparaît alors, après laquelle vous pouvez saisir tous les champs (sujet, salle et heure). Ensuite, il suffit de sauvegarder et la leçon sera répertoriée.</string>
+    <string name="descricaoAjudaHorarioCriar">Pour créer une nouvelle leçon, il suffit de cliquer sur le bouton rond dans le coin inférieur droit. Une pop-up apparaît alors, il suffit de remplir le sujet et la salle, pour entrer l\'heure, l\'utilisateur doit cliquer sur les boutons d\'heure et une pop-up apparaît pour sélectionner l\'heure. Ensuite, il suffit de sauvegarder et la leçon sera répertoriée.</string>
     <string name="descricaoAjudaHorarioEditar">Pour modifier une leçon, il suffit de cliquer sur la leçon que vous souhaitez modifier. Une fenêtre pop-up apparaît alors avec les données de la leçon. Il suffit ensuite de modifier les données que vous voulez changer et de les enregistrer.</string>
     <string name="descricaoAjudaPerfilPrincipal">Sur cette page, l\'utilisateur pourra voir son nom d\'utilisateur et son adresse électronique. Ils pourront également modifier leur mot de passe et se déconnecter.</string>
     <string name="descricaoAjudaPerfilPass">Pour modifier le <i>mot de passe</i>, il suffit de cliquer sur le bouton modifier le <i>mot de passe</i>, puis une <i>pop-up</i> apparaîtra. Comme indiqué dans la première image, vous devez saisir le <i>mot de passe</i> actuel, le nouveau et répéter. Lors de la modification du nouveau mot de passe, un message de réussite apparaîtra et une fenêtre pop-up avec un message indiquant que la session sera terminée.</string>
@@ -114,4 +114,6 @@
     <string name="horaInicial">Heure de début</string>
     <string name="horaFinal">Dernière heure</string>
     <string name="lembreteDefinido">Le rappel a été fixé</string>
+    <string name="EliminarAula">Supprimer la classe</string>
+    <string name="descricaoAjudaHorarioEliminar">Pour supprimer une leçon, il suffit de faire glisser la leçon que vous souhaitez supprimer vers la droite ou la gauche, puis une fenêtre de confirmation apparaîtra. Lorsque vous confirmez, la tâche est supprimée.</string>
 </resources>

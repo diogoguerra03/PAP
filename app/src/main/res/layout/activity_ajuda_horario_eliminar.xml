@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ajuda.AjudaTarefaCriar"
+    tools:context=".activity.ajuda.AjudaHorarioEliminar"
     android:layout_margin="10dp">
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:justificationMode="inter_word"
-        android:text="@string/descricaoAjudaHorarioCriar"
+        android:text="@string/descricaoAjudaHorarioEliminar"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:scaleType="fitStart"
-                android:src="@drawable/ajuda_criar_aula_1" />
+                android:src="@drawable/ajuda_eliminar_horario" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -56,7 +56,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:scaleType="fitStart"
-                android:src="@drawable/ajuda_criar_aula_2" />
+                android:src="@drawable/ajuda_eliminar_horario1" />
         </RelativeLayout>
 
     </LinearLayout>

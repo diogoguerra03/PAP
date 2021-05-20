@@ -106,7 +106,7 @@
     <string name="descricaoAjudaHorarioPrincipal">En esta página el usuario tendrá que seleccionar el día de la semana, luego será redirigido a la página de ese día y sólo entonces podrá añadir un tema, sala y horas (inicio y fin). El usuario puede crear, actualizar y eliminar clases.</string>
     <string name="criarAula">Crear una nueva lección</string>
     <string name="EditarAula">Editar clase</string>
-    <string name="descricaoAjudaHorarioCriar">Para crear una nueva lección, basta con hacer clic en el botón redondo de la esquina inferior derecha. A continuación, aparecerá una ventana emergente, tras la cual podrá introducir todos los campos (asunto, sala y hora). Luego, sólo hay que guardar y la lección aparecerá en la lista.</string>
+    <string name="descricaoAjudaHorarioCriar">Para crear una nueva lección, basta con hacer clic en el botón redondo de la esquina inferior derecha. Entonces aparecerá una ventana emergente, entonces sólo hay que rellenar el asunto y la sala, para introducir la hora, el usuario tiene que hacer clic en los botones de la hora y aparecerá una ventana emergente para seleccionar la hora. Luego, sólo hay que guardar y la lección aparecerá en la lista.</string>
     <string name="descricaoAjudaHorarioEditar">Para editar la lección, sólo tiene que hacer clic en la lección que desea editar. Entonces aparecerá una ventana emergente con los datos de la lección. A continuación, sólo tienes que cambiar los datos que quieras modificar y guardar.</string>
     <string name="descricaoAjudaPerfilPrincipal">En esta página el usuario podrá ver su nombre de usuario y su dirección de correo electrónico. También podrán cambiar su contraseña y cerrar la sesión.</string>
     <string name="descricaoAjudaPerfilPass">Para cambiar la <i>contraseña</i> sólo hay que pulsar el botón de cambiar <i>contraseña</i>, entonces aparecerá una <i>pantalla</i>. Como se muestra en la primera imagen hay que introducir la <i>contraseña</i> actual, la nueva y repetir. Al cambiar la nueva contraseña aparecerá un mensaje de éxito y una ventana emergente con un mensaje que dice que la sesión se terminará.</string>
@@ -114,4 +114,6 @@
     <string name="horaInicial">Hora de inicio</string>
     <string name="horaFinal">Hora final</string>
     <string name="lembreteDefinido">El recordatorio se estableció</string>
+    <string name="EliminarAula">Eliminar la clase</string>
+    <string name="descricaoAjudaHorarioEliminar">Para eliminar una lección, simplemente arrastre la lección que desea eliminar hacia la derecha o hacia la izquierda, entonces aparecerá una ventana emergente de confirmación. Cuando confirme, la tarea será eliminada.</string>
 </resources>

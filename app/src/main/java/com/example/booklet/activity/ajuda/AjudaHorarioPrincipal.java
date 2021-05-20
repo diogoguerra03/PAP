@@ -15,7 +15,7 @@ import com.example.booklet.utility.NetworkChangeListener;
 
 public class AjudaHorarioPrincipal extends AppCompatActivity {
 
-    Button btnCriarAula, btnEditarAula;
+    Button btnCriarAula, btnEditarAula, btnEliminarAula;
 
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
@@ -30,6 +30,7 @@ public class AjudaHorarioPrincipal extends AppCompatActivity {
 
         btnCriarAula = findViewById(R.id.btnAjudaCriarAula);
         btnEditarAula = findViewById(R.id.btnAjudaEditarAula);
+        btnEliminarAula = findViewById(R.id.btnAjudaEliminarAula);
 
         btnCriarAula.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +42,14 @@ public class AjudaHorarioPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AjudaHorarioPrincipal.this, AjudaHorarioEditar.class));
+
+            }
+        });
+
+        btnEliminarAula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AjudaHorarioPrincipal.this, AjudaHorarioEliminar.class));
 
             }
         });

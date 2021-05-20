@@ -106,7 +106,7 @@
     <string name="descricaoAjudaHorarioPrincipal">On this page the user will have to select the day of the week, then he will be redirected to that day\'s page and only then he will be able to add a subject, room and times (start and end). The user can create, update and delete classes.</string>
     <string name="criarAula">Create new lesson</string>
     <string name="EditarAula">Edit Class</string>
-    <string name="descricaoAjudaHorarioCriar">To create a new lesson, simply click on the round button in the lower right corner. Then a pop-up window will appear, after which you can enter all the fields (subject, room and time). Then just save and the lesson will be listed.</string>
+    <string name="descricaoAjudaHorarioCriar">To create a new lesson, just click on the round button in the lower right corner. Then a popup will appear, then just fill in the subject and room, to enter the time, the user has to click on the time buttons and a popup will appear to select the time. Then just save and the lesson will be listed.</string>
     <string name="descricaoAjudaHorarioEditar">To edit the lesson, just click on the lesson you want to edit. Then a pop-up window will appear with the data of the lesson. Then just change the data you want to change and save.</string>
     <string name="descricaoAjudaPerfilPrincipal">On this page the user will be able to see his or her username and email address. They will also be able to change their password and log out.</string>
     <string name="descricaoAjudaPerfilPass">To change the <i>password</i> just click on the change <i>password</i> button, then a <i>pop-up</i> will appear. As is shown in the first image you need to enter the current <i>password</i>, the new one and repeat. When you change it, a success message will appear and a <i>pop-up</i> with a message saying that the session will be terminated.</string>
@@ -114,4 +114,6 @@
     <string name="horaInicial">Start time</string>
     <string name="horaFinal">End Time</string>
     <string name="lembreteDefinido">The reminder was set</string>
+    <string name="EliminarAula">Delete Class</string>
+    <string name="descricaoAjudaHorarioEliminar">To delete a lesson, simply drag the lesson you want to delete to the right or left, then a confirmation pop-up will appear. When you confirm the task will be deleted.</string>
 </resources>

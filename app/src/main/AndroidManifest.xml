@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/logo_booklet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".notificacao.NotificationMessage"></activity>
+        <activity android:name=".activity.ajuda.AjudaHorarioEliminar"
+            android:parentActivityName=".activity.ajuda.AjudaHorarioPrincipal"/>
+        <activity android:name=".notificacao.NotificationMessage" />
         <activity
             android:name=".activity.ajuda.AjudaPerfilSessao"
             android:parentActivityName=".activity.ajuda.AjudaPerfilPrincipal" />
