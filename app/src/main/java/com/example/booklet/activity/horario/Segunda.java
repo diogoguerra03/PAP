@@ -81,8 +81,8 @@ public class Segunda extends AppCompatActivity {
         //Configurar RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Segunda.this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
+        //linearLayoutManager.setReverseLayout(true);
+        //linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterHorario);
         swipe();
