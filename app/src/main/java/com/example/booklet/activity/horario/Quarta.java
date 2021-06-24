@@ -60,6 +60,8 @@ public class Quarta extends AppCompatActivity {
 
     String timeToHoraInicial;
     String timeToHoraFinal;
+    String timeToHoraInicialAtualizada;
+    String timeToHoraFinalAtualizada;
 
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
@@ -325,7 +327,7 @@ public class Quarta extends AppCompatActivity {
         });
     }
 
-    private void atualizarTarefa() {
+    private void atualizarTarefa(){
         AlertDialog.Builder myDialog = new AlertDialog.Builder(Quarta.this);
         LayoutInflater inflater = LayoutInflater.from(Quarta.this);
         View view = inflater.inflate(R.layout.update_horario, null);
@@ -335,8 +337,8 @@ public class Quarta extends AppCompatActivity {
 
         final EditText campoDisciplinaAtualizada = view.findViewById(R.id.EdtDisciplinaAtualizada);
         final EditText campoSalaAtualizada = view.findViewById(R.id.EdtSalaAtualizada);
-        final EditText campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
-        final EditText campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
+        final Button campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
+        final Button campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
 
         campoDisciplinaAtualizada.setText(disciplinaPreenchida);
         campoDisciplinaAtualizada.setSelection(disciplinaPreenchida.length());
@@ -345,13 +347,47 @@ public class Quarta extends AppCompatActivity {
         campoSalaAtualizada.setSelection(salaPreenchida.length());
 
         campoHrInicialAtualizada.setText(HrInicialPreenchida);
-        campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
+        //campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
 
         campoHrFinalAtualizada.setText(HrFinalPreenchida);
-        campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
+        //campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
 
         Button btnCancelar = view.findViewById(R.id.btnCancelarUpdate);
         Button btnAtualizar = view.findViewById(R.id.btnAtualizar);
+
+        campoHrInicialAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Quarta.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraInicialAtualizada =hourOfDay + ":" + minute;
+                        campoHrInicialAtualizada.setText(timeToHoraInicialAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
+        campoHrFinalAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Quarta.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraFinalAtualizada =hourOfDay + ":" + minute;
+                        campoHrFinalAtualizada.setText(timeToHoraFinalAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
 
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -366,9 +402,11 @@ public class Quarta extends AppCompatActivity {
                 String HrInicialP = HrInicialPreenchida;
                 String HrFinalP = HrFinalPreenchida;
 
-                if (!disciplinaP.isEmpty()) {
-                    if (!salaP.isEmpty()) {
-                        if (!HrInicialP.isEmpty() && !HrFinalP.isEmpty()) {
+                if (!disciplinaP.isEmpty()){
+                    if (!salaP.isEmpty()){
+                        if (HrInicialP.equals("Hora Inicial") && HrFinalP.equals("Hora Final")){
+                            Toast.makeText(Quarta.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
+                        }else{
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -392,16 +430,15 @@ public class Quarta extends AppCompatActivity {
                             horarioQuartaRef.child(horario.getId()).updateChildren(hashHrInicial);
                             horarioQuartaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
-                        } else {
-                            Toast.makeText(Quarta.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
                         }
-                    } else {
+                    }else{
                         Toast.makeText(Quarta.this, R.string.digitarSala, Toast.LENGTH_LONG).show();
                     }
 
-                } else {
+                }else{
                     Toast.makeText(Quarta.this, R.string.digitarDisciplina, Toast.LENGTH_LONG).show();
                 }
+
 
 
             }

@@ -60,6 +60,8 @@ public class Terca extends AppCompatActivity {
 
     String timeToHoraInicial;
     String timeToHoraFinal;
+    String timeToHoraInicialAtualizada;
+    String timeToHoraFinalAtualizada;
 
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
@@ -335,8 +337,8 @@ public class Terca extends AppCompatActivity {
 
         final EditText campoDisciplinaAtualizada = view.findViewById(R.id.EdtDisciplinaAtualizada);
         final EditText campoSalaAtualizada = view.findViewById(R.id.EdtSalaAtualizada);
-        final EditText campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
-        final EditText campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
+        final Button campoHrInicialAtualizada = view.findViewById(R.id.EdthoraInicialAtualizada);
+        final Button campoHrFinalAtualizada = view.findViewById(R.id.EdthoraFinalAtualizada);
 
         campoDisciplinaAtualizada.setText(disciplinaPreenchida);
         campoDisciplinaAtualizada.setSelection(disciplinaPreenchida.length());
@@ -345,13 +347,47 @@ public class Terca extends AppCompatActivity {
         campoSalaAtualizada.setSelection(salaPreenchida.length());
 
         campoHrInicialAtualizada.setText(HrInicialPreenchida);
-        campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
+        //campoHrInicialAtualizada.setSelection(HrInicialPreenchida.length());
 
         campoHrFinalAtualizada.setText(HrFinalPreenchida);
-        campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
+        //campoHrFinalAtualizada.setSelection(HrFinalPreenchida.length());
 
         Button btnCancelar = view.findViewById(R.id.btnCancelarUpdate);
         Button btnAtualizar = view.findViewById(R.id.btnAtualizar);
+
+        campoHrInicialAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Terca.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraInicialAtualizada =hourOfDay + ":" + minute;
+                        campoHrInicialAtualizada.setText(timeToHoraInicialAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
+
+        campoHrFinalAtualizada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Terca.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeToHoraFinalAtualizada =hourOfDay + ":" + minute;
+                        campoHrFinalAtualizada.setText(timeToHoraFinalAtualizada);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+            }
+        });
 
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -368,7 +404,9 @@ public class Terca extends AppCompatActivity {
 
                 if (!disciplinaP.isEmpty()){
                     if (!salaP.isEmpty()){
-                        if (!HrInicialP.isEmpty() && !HrFinalP.isEmpty()){
+                        if (HrInicialP.equals("Hora Inicial") && HrFinalP.equals("Hora Final")){
+                            Toast.makeText(Terca.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
+                        }else{
                             String emailUtilizador = auth.getCurrentUser().getEmail();
                             String idUtilizador = Base64Custom.codificarBase64(emailUtilizador);
 
@@ -392,8 +430,6 @@ public class Terca extends AppCompatActivity {
                             horarioTercaRef.child(horario.getId()).updateChildren(hashHrInicial);
                             horarioTercaRef.child(horario.getId()).updateChildren(hashHrFinal);
                             dialog.dismiss();
-                        }else{
-                            Toast.makeText(Terca.this, R.string.digitarHora, Toast.LENGTH_LONG).show();
                         }
                     }else{
                         Toast.makeText(Terca.this, R.string.digitarSala, Toast.LENGTH_LONG).show();
