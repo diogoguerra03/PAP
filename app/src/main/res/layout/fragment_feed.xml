@@ -8,6 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".fragment.FeedFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/noticias"
+        android:fontFamily="@font/g_bold"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textAllCaps="false"
+        android:gravity="center"
+        />
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
