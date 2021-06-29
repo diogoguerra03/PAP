@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/noticias"
         android:fontFamily="@font/g_bold"
-        android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="36sp"
         android:textAllCaps="false"
         android:gravity="center"
         />

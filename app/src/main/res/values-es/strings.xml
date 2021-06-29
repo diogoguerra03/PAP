@@ -14,8 +14,8 @@
     <string name="tarefas">Tareas</string>
     <string name="tarefa">Tarea</string>
     <string name="tarefaIN">Tarea:</string>
-    <string name="disciplina">Disciplina</string>
-    <string name="disciplinaIN">Disciplina:</string>
+    <string name="disciplina">Asignatura</string>
+    <string name="disciplinaIN">Asignatura:</string>
     <string name="data">Fecha:</string>
     <string name="cancelar">Cancelar</string>
     <string name="guardar">Guardar</string>

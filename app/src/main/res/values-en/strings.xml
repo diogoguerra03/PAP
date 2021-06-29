@@ -102,7 +102,7 @@
     <string name="descricaoAjudaTarefaEditar">To edit a task, simply click on the task and a pop-up will appear with the selected task data. Then just change the fields you want and save. If the user wants to set a reminder, they will have to click on the <i>icon</i> of the bell and two <i>pop-ups</i> will appear one to select the day and another to select the time.</string>
     <string name="descricaoAjudaTarefaEliminar">To delete a task, simply drag the task you want to delete to the right or left, then a confirmation pop-up will appear. When you confirm the task will be deleted.</string>
     <string name="descricaoAjudaTarefaRealizar">To put a task already done, just hold down the task for a while and the checkbox is automatically activated. If the user wants to change the task to not done, just do the same.</string>
-    <string name="selecionarDia">Selects the day of the week</string>
+    <string name="selecionarDia">Select the day of the week</string>
     <string name="descricaoAjudaHorarioPrincipal">On this page the user will have to select the day of the week, then he will be redirected to that day\'s page and only then he will be able to add a subject, room and times (start and end). The user can create, update and delete classes.</string>
     <string name="criarAula">Create new lesson</string>
     <string name="EditarAula">Edit Class</string>
